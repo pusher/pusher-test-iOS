@@ -1,0 +1,30 @@
+//
+// Prefix header for all source files of the 'Diagnostics' target in the 'Diagnostics' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+// user defaults
+#define kUserDefaultsSSLEnabled             @"UserDefaultsSSLEnabled"
+#define kUserDefaultsReconnectEnabled       @"UserDefaultsReconnectEnabled"
+
+// credentials
+#define kPusherTriggerEventURL              [NSURL URLWithString:@"http://test.pusher.com/hello?env=default"]
+#define kPusherReachabilityHostname         @"pusher.com"
+#define kPusherKey                          @"22364f2f790269bec0a0"
+
+// info
+#define kPusherSupportEmail                 @"support@pusher.com"
+
+
+// helper macros
+#define RECTLOG(rect)    (NSLog(@""  #rect @" x:%f y:%f w:%f h:%f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height ));
