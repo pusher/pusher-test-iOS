@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2kt-dm-YYD">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxU-BA-AQx">
-                                <rect key="frame" x="20" y="243" width="136" height="44"/>
+                                <rect key="frame" x="20" y="219" width="136" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2U6-42-dQG"/>
                                 </constraints>
@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJG-Op-Iy8">
-                                <rect key="frame" x="164" y="243" width="136" height="44"/>
+                                <rect key="frame" x="164" y="219" width="136" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="136" id="cl5-im-VIZ"/>
                                 </constraints>
@@ -158,63 +158,62 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGp-I4-XLn" userLabel="Logging Text View">
-                                <rect key="frame" x="20" y="295" width="280" height="201"/>
+                                <rect key="frame" x="20" y="271" width="280" height="225"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9fw-Z3-SNQ" userLabel="SSL Switch">
-                                <rect key="frame" x="20" y="204" width="51" height="31"/>
-                                <connections>
-                                    <action selector="sslSwitchChanged:" destination="2" eventType="valueChanged" id="lLm-cD-s7Y"/>
-                                </connections>
-                            </switch>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mta-RH-pQh" userLabel="Reconnect Switch">
-                                <rect key="frame" x="159" y="204" width="51" height="31"/>
+                                <rect key="frame" x="251" y="180" width="51" height="31"/>
                                 <connections>
                                     <action selector="autoReconnectSwitchChanged:" destination="2" eventType="valueChanged" id="x8G-sc-yc2"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SSL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvi-Hx-awb">
-                                <rect key="frame" x="20" y="180" width="33" height="21"/>
+                                <rect key="frame" x="20" y="185" width="33" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="NRM-mo-cCL"/>
+                                    <constraint firstAttribute="width" constant="33" id="2ge-co-NT1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Auto Reconnect" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ap-Nf-iqR">
-                                <rect key="frame" x="159" y="180" width="119" height="21"/>
+                                <rect key="frame" x="124" y="185" width="119" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DFh-80-BbM">
+                                <rect key="frame" x="61" y="180" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sslSwitchChanged:" destination="2" eventType="valueChanged" id="r97-KM-W5d"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="0.91809475806451613" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mJG-Op-Iy8" firstAttribute="top" secondItem="mta-RH-pQh" secondAttribute="bottom" constant="8" id="5eg-1T-vbT"/>
                             <constraint firstItem="KEU-oj-PAe" firstAttribute="top" secondItem="XHK-YY-DR7" secondAttribute="bottom" constant="20" id="BkX-v2-J8m"/>
+                            <constraint firstItem="Fvi-Hx-awb" firstAttribute="baseline" secondItem="0Ap-Nf-iqR" secondAttribute="baseline" id="EtG-N3-9VK"/>
                             <constraint firstItem="KGp-I4-XLn" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="GBQ-Od-KNR"/>
-                            <constraint firstItem="9fw-Z3-SNQ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="GJu-66-qOC"/>
                             <constraint firstItem="yxU-BA-AQx" firstAttribute="top" secondItem="mJG-Op-Iy8" secondAttribute="top" id="Gai-kI-bvi"/>
-                            <constraint firstItem="9fw-Z3-SNQ" firstAttribute="top" secondItem="Fvi-Hx-awb" secondAttribute="bottom" constant="3" id="KHx-8Q-fjz"/>
+                            <constraint firstAttribute="trailing" secondItem="mta-RH-pQh" secondAttribute="trailing" constant="20" id="HVZ-4z-KKj"/>
+                            <constraint firstItem="mta-RH-pQh" firstAttribute="top" secondItem="fud-u4-QFH" secondAttribute="bottom" constant="8" id="L1o-Pa-unw"/>
                             <constraint firstItem="fud-u4-QFH" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="LS6-WH-VgS"/>
                             <constraint firstItem="KEU-oj-PAe" firstAttribute="top" secondItem="wMw-Mh-13s" secondAttribute="bottom" constant="20" id="Nqy-Vn-aDc"/>
                             <constraint firstItem="mJG-Op-Iy8" firstAttribute="leading" secondItem="yxU-BA-AQx" secondAttribute="trailing" constant="8" symbolic="YES" id="PED-GR-yvF"/>
+                            <constraint firstItem="mta-RH-pQh" firstAttribute="leading" secondItem="0Ap-Nf-iqR" secondAttribute="trailing" constant="8" id="Sxl-OL-oUP"/>
                             <constraint firstItem="KGp-I4-XLn" firstAttribute="top" secondItem="yxU-BA-AQx" secondAttribute="bottom" constant="8" symbolic="YES" id="Tk5-tn-mpN"/>
                             <constraint firstAttribute="trailing" secondItem="wMw-Mh-13s" secondAttribute="trailing" constant="20" id="U7n-M2-zew"/>
                             <constraint firstItem="wMw-Mh-13s" firstAttribute="top" secondItem="KGp-I4-XLn" secondAttribute="bottom" constant="8" symbolic="YES" id="Xbq-QW-fPu"/>
+                            <constraint firstItem="Fvi-Hx-awb" firstAttribute="centerY" secondItem="mta-RH-pQh" secondAttribute="centerY" id="YBN-Gc-pb2"/>
                             <constraint firstAttribute="trailing" secondItem="fud-u4-QFH" secondAttribute="trailing" constant="20" symbolic="YES" id="YZ2-z7-sjR"/>
-                            <constraint firstItem="Fvi-Hx-awb" firstAttribute="top" secondItem="fud-u4-QFH" secondAttribute="bottom" constant="8" symbolic="YES" id="ajG-5Q-hIM"/>
                             <constraint firstAttribute="trailing" secondItem="mJG-Op-Iy8" secondAttribute="trailing" constant="20" symbolic="YES" id="bHM-JT-Rsv"/>
-                            <constraint firstItem="0Ap-Nf-iqR" firstAttribute="baseline" secondItem="Fvi-Hx-awb" secondAttribute="baseline" id="chu-j9-NuG"/>
-                            <constraint firstItem="0Ap-Nf-iqR" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="159" id="eRg-6r-JBF"/>
-                            <constraint firstItem="mJG-Op-Iy8" firstAttribute="top" secondItem="mta-RH-pQh" secondAttribute="bottom" constant="8" symbolic="YES" id="hGW-bF-h4S"/>
-                            <constraint firstItem="mta-RH-pQh" firstAttribute="leading" secondItem="0Ap-Nf-iqR" secondAttribute="leading" id="hNp-aT-yO2"/>
+                            <constraint firstItem="Fvi-Hx-awb" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" id="heo-4i-N1U"/>
                             <constraint firstItem="KGp-I4-XLn" firstAttribute="top" secondItem="mJG-Op-Iy8" secondAttribute="bottom" constant="8" symbolic="YES" id="lEW-1x-fsP"/>
                             <constraint firstItem="fud-u4-QFH" firstAttribute="top" secondItem="mDU-ez-b0x" secondAttribute="bottom" constant="8" id="tro-Q4-NIW"/>
-                            <constraint firstItem="Fvi-Hx-awb" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="uQj-L9-hsa"/>
-                            <constraint firstItem="yxU-BA-AQx" firstAttribute="top" secondItem="9fw-Z3-SNQ" secondAttribute="bottom" constant="8" symbolic="YES" id="uc5-xR-Nvq"/>
                             <constraint firstItem="yxU-BA-AQx" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="vgu-PC-4E1"/>
                             <constraint firstItem="XHK-YY-DR7" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" id="woU-dC-UuZ"/>
                             <constraint firstItem="XHK-YY-DR7" firstAttribute="top" secondItem="KGp-I4-XLn" secondAttribute="bottom" constant="8" symbolic="YES" id="xlZ-tb-Kvh"/>
@@ -229,7 +228,7 @@
                         <outlet property="internetConnectionView" destination="BX7-iF-VJ7" id="mnw-Bl-mNM"/>
                         <outlet property="logTextView" destination="KGp-I4-XLn" id="86u-g8-Qhe"/>
                         <outlet property="pusherConnectionView" destination="6u1-fD-gbH" id="SWX-qO-0QW"/>
-                        <outlet property="sslSwitch" destination="9fw-Z3-SNQ" id="70a-YH-M6F"/>
+                        <outlet property="sslSwitch" destination="DFh-80-BbM" id="7BC-KC-vla"/>
                         <outlet property="triggerEventButton" destination="mJG-Op-Iy8" id="jn8-f8-YWH"/>
                     </connections>
                 </viewController>
