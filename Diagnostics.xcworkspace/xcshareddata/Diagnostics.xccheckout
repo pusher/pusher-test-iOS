@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7983B8A1-7996-4F84-AFC0-7225FECCA1DE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Diagnostics</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D044B10D-1BC0-41F3-87D7-76595FB1871D</key>
+		<string>ssh://github.com/pusher/PusherDiagnostics.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Diagnostics.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D044B10D-1BC0-41F3-87D7-76595FB1871D</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/pusher/PusherDiagnostics.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D044B10D-1BC0-41F3-87D7-76595FB1871D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D044B10D-1BC0-41F3-87D7-76595FB1871D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PusherDiagnostics</string>
+		</dict>
+	</array>
+</dict>
+</plist>

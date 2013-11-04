@@ -1,1752 +1,463 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>0208F1E368A44D2DA581A6CC</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8C539375FF434486ACA36436</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-prefix.pch</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>GCC_WARN_INHIBIT_ALL_WARNINGS</key>
-				<string>NO</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>4.3</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PODS_HEADERS_SEARCH_PATHS</key>
-				<string>${PODS_BUILD_HEADERS_SEARCH_PATHS}</string>
-				<key>PODS_ROOT</key>
-				<string>${SRCROOT}</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>0216D5D8F6AD4958B87BDED7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>225FBBED12D64E91BA11D77F</string>
-				<string>D76CFB7F566244999BEA1B6F</string>
-				<string>8C539375FF434486ACA36436</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>036C34C1FEAD467EB8288754</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTTargetActionEventListener.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTTargetActionEventListener.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>040DE9D836384E029F45124D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4BD8A872B40442DBCDCB821</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>050FBFAD3E044673A458EB4F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>NSDictionary+QueryString.h</string>
-			<key>path</key>
-			<string>libPusher/Library/NSDictionary+QueryString.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>09BCD002A34C4F0DA0B7D57C</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>9659F57E9E8045FC8A67888E</string>
-			<key>buildPhases</key>
-			<array>
-				<string>4300E5963A014C00B812FE3D</string>
-				<string>E39DDE5D1CD04111B1B543FC</string>
-				<string>20C405BADE4843A3B0445DBD</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>productName</key>
-			<string>Pods</string>
-			<key>productReference</key>
-			<string>A837D23543984B14864A4B5C</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>0AD83A32577E4541A76810C3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F8624025B6694F25AA49EECF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>0BFF7479439A4BD091D0F75D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SRWebSocket.m</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/SRWebSocket.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>0E678CBD3A0C436393BFFCBA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>68B5F0D090284F9AA5E4FDCF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>0F0A6AC1EAA146E3B6CBAEA6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NSDictionary+QueryString.m</string>
-			<key>path</key>
-			<string>libPusher/Library/NSDictionary+QueryString.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>0FBE0326EA3644B889B32B60</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTURLRequestOperation.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTURLRequestOperation.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>11510DFAA304457D8200947B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTPusherEventDispatcher.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEventDispatcher.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>147414BFE5514AA4A1002C74</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C73ABF659B854D6680210B8A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>162CE8FAECFE4EBBB5FEFD41</key>
-		<dict>
-			<key>fileRef</key>
-			<string>16CB19E3EDCD40A89EF31C8F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>16CB19E3EDCD40A89EF31C8F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherMockConnection.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherMockConnection.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>199D2897C76843B487B2247D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTBlockEventListener.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTBlockEventListener.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>1BD7101D9AA64BFB8FB89761</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E7476015A7E140E5BE2FA958</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>1C426A5B609F4B6788407A8A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6E9AF222DE70492CA185D293</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>1C8D355B52644C39B4354CD2</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0450</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>3048709190EF4953A49EAE7E</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>626148AAD7084DF8BC2CB2FC</string>
-			<key>productRefGroup</key>
-			<string>E157E600020147CC928BC731</string>
-			<key>projectReferences</key>
-			<array/>
-			<key>targets</key>
-			<array>
-				<string>09BCD002A34C4F0DA0B7D57C</string>
-			</array>
-		</dict>
-		<key>20C405BADE4843A3B0445DBD</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>79884B3DA21A4F6B89BFC100</string>
-				<string>1C426A5B609F4B6788407A8A</string>
-				<string>6866D74EA26344A9A681BF85</string>
-				<string>DCE40E747746471792AC900A</string>
-				<string>0AD83A32577E4541A76810C3</string>
-				<string>7BA2962965D34B47871C002B</string>
-				<string>A3B86B0B6030492FBBB8B5CE</string>
-				<string>8B99D25842BB49C5B9ACA15B</string>
-				<string>DC71E86C9885408CA06C2CFC</string>
-				<string>5898082B68744B97AD951598</string>
-				<string>97539EDF1D404646A1FD46A7</string>
-				<string>3CE43A585F5B4E8CAD783FFE</string>
-				<string>040DE9D836384E029F45124D</string>
-				<string>8606F064A0D0425F8DE09D3D</string>
-				<string>77DB91D4E3A24B23A5CD1325</string>
-				<string>B33F683A56B048ACA4A9D584</string>
-				<string>4FBEA4C8559B49149933DD27</string>
-				<string>A28F5D78F53B40978705A528</string>
-				<string>9B09EF4EB779408ABFB66956</string>
-				<string>F70591B7EDFF4280A1A30312</string>
-				<string>7274262AD4DF471A9BE5129B</string>
-				<string>8B7FBC6954C14D7C9DE112F3</string>
-				<string>480A140FE10346879FB33189</string>
-				<string>162CE8FAECFE4EBBB5FEFD41</string>
-				<string>F4A29475F5284FAE9E6188AC</string>
-				<string>8ECFBE7AB1184CF4A16509C6</string>
-				<string>0E678CBD3A0C436393BFFCBA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>225FBBED12D64E91BA11D77F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods-resources.sh</string>
-			<key>path</key>
-			<string>Pods-resources.sh</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>26C366A3DBDF4E118B499BA3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTPusherConnection.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherConnection.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>26FECC7371E045D09E5D0759</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PodsDummy_Pods.m</string>
-			<key>path</key>
-			<string>PodsDummy_Pods.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>27D7DBCC059040CA99B8AFDD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherDelegate.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherDelegate.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>3048709190EF4953A49EAE7E</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C53738A598A44251BA22569A</string>
-				<string>5790B386C7374B3C81DD8CF0</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>32BCB23BBA9840ACBEE5AFAD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9B59D9322D914CDE865C665A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>3434A5DC4CEF4EEDB134DFD0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C51F1A0211E5454999A16F50</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>3A2DCA12D65C4A7783E0A2E5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>NSString+Hashing.h</string>
-			<key>path</key>
-			<string>libPusher/Library/NSString+Hashing.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>3C0BB7ADAB50499B9224D7BC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTPusherChannelAuthorizationOperation.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherChannelAuthorizationOperation.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>3CA5BA8E31134DFC84C03ED2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6E9AF222DE70492CA185D293</string>
-				<string>D957B230F7AE4EDCAD56B441</string>
-				<string>6232FBFB15874B6295DF549F</string>
-				<string>C51F1A0211E5454999A16F50</string>
-				<string>0BFF7479439A4BD091D0F75D</string>
-				<string>C73ABF659B854D6680210B8A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SocketRocket</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3CE3957C7356400CB1AEC6F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A56B8485FD5E4BE09986A439</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>3CE43A585F5B4E8CAD783FFE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4DA3B24D7CC74F4F8AECE959</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>4300E5963A014C00B812FE3D</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>1BD7101D9AA64BFB8FB89761</string>
-				<string>3434A5DC4CEF4EEDB134DFD0</string>
-				<string>D2AC3D712BC04515B16E93A7</string>
-				<string>147414BFE5514AA4A1002C74</string>
-				<string>BBF6206A716042439B32E105</string>
-				<string>FD4B240C8DE14B75941E7566</string>
-				<string>5C7ED3E789CD4E448AE60616</string>
-				<string>B3F5CB0EB47B478AB93587AC</string>
-				<string>845B2242E072437C8A1E5687</string>
-				<string>32BCB23BBA9840ACBEE5AFAD</string>
-				<string>3CE3957C7356400CB1AEC6F4</string>
-				<string>BB1C2707FA3C457DA8A26EA2</string>
-				<string>9F57E4CEBF03408A8F6CC987</string>
-				<string>AAB68196564A413CB52C038B</string>
-				<string>48AD91DC4DDE405997A17577</string>
-				<string>9821D1F207F244008C78FBF1</string>
-				<string>88CD6EDFF93C4B189D146C95</string>
-				<string>45945EADF98A41A5BCE945B8</string>
-				<string>DDBA3B854D1F4BEEA0D8632A</string>
-				<string>5A583C26D34541188E420FE0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>45945EADF98A41A5BCE945B8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>036C34C1FEAD467EB8288754</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>480A140FE10346879FB33189</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A3B30D70DE6B4991BF4CE9A8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>48AD91DC4DDE405997A17577</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6585A4E8CB4745088E08FD3C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>4C433404EC844BA18922D82E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F8624025B6694F25AA49EECF</string>
-				<string>050FBFAD3E044673A458EB4F</string>
-				<string>0F0A6AC1EAA146E3B6CBAEA6</string>
-				<string>3A2DCA12D65C4A7783E0A2E5</string>
-				<string>B21BC452DB3F4B08997FF87F</string>
-				<string>4F1DB60A3328487EA554BBA3</string>
-				<string>199D2897C76843B487B2247D</string>
-				<string>D652E5D378694789BE042B79</string>
-				<string>6CB5BDDA53EE4DEFAB3AA4A3</string>
-				<string>9B7D20C8126949F6A4E55E96</string>
-				<string>A8D75F266EF64091B817F48C</string>
-				<string>4DA3B24D7CC74F4F8AECE959</string>
-				<string>A02E83359AC74D14AB5F46DB</string>
-				<string>D4BD8A872B40442DBCDCB821</string>
-				<string>9B59D9322D914CDE865C665A</string>
-				<string>9020562936B845249811EF43</string>
-				<string>A56B8485FD5E4BE09986A439</string>
-				<string>7B9D84FB6F3C4F77B5C714FA</string>
-				<string>7BEA072ADCE54477AE06CE06</string>
-				<string>C31762211CAA4B779BA1ED1C</string>
-				<string>3C0BB7ADAB50499B9224D7BC</string>
-				<string>A3ECA697ECE34FF1A4254DAD</string>
-				<string>26C366A3DBDF4E118B499BA3</string>
-				<string>27D7DBCC059040CA99B8AFDD</string>
-				<string>EE3413143BC74C7AB3050C38</string>
-				<string>559A6C7EC71B4ED0A38F39E7</string>
-				<string>6585A4E8CB4745088E08FD3C</string>
-				<string>B0898AFA981E47B9A340C358</string>
-				<string>11510DFAA304457D8200947B</string>
-				<string>6ACA0D77F0004EA88C3D0241</string>
-				<string>A3B30D70DE6B4991BF4CE9A8</string>
-				<string>16CB19E3EDCD40A89EF31C8F</string>
-				<string>D2F3CE7934DE45FFAF7D7E41</string>
-				<string>FF4CFA8AB1064459A320F97A</string>
-				<string>C5C3796CFC324D47BB041AE3</string>
-				<string>036C34C1FEAD467EB8288754</string>
-				<string>68B5F0D090284F9AA5E4FDCF</string>
-				<string>0FBE0326EA3644B889B32B60</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>libPusher</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4DA3B24D7CC74F4F8AECE959</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusher+Testing.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusher+Testing.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>4F1DB60A3328487EA554BBA3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTBlockEventListener.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTBlockEventListener.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>4FBEA4C8559B49149933DD27</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A3ECA697ECE34FF1A4254DAD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>559A6C7EC71B4ED0A38F39E7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherEvent.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEvent.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>5790B386C7374B3C81DD8CF0</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict/>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5898082B68744B97AD951598</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6CB5BDDA53EE4DEFAB3AA4A3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>5A583C26D34541188E420FE0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>26FECC7371E045D09E5D0759</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>5C7ED3E789CD4E448AE60616</key>
-		<dict>
-			<key>fileRef</key>
-			<string>199D2897C76843B487B2247D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>6232FBFB15874B6295DF549F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SRWebSocket.h</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/SRWebSocket.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>626148AAD7084DF8BC2CB2FC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E157E600020147CC928BC731</string>
-				<string>AA1375F584C54117B3774EBC</string>
-				<string>FAD971712AC846528D31736E</string>
-				<string>7CAED82F8C064EB6AF71B68E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6585A4E8CB4745088E08FD3C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTPusherEvent.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEvent.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6866D74EA26344A9A681BF85</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D957B230F7AE4EDCAD56B441</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>68B5F0D090284F9AA5E4FDCF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTURLRequestOperation.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTURLRequestOperation.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6ACA0D77F0004EA88C3D0241</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherEventPublisher.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEventPublisher.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6CB5BDDA53EE4DEFAB3AA4A3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTJSON.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTJSON.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>6E9AF222DE70492CA185D293</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>base64.h</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/base64.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>7274262AD4DF471A9BE5129B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B0898AFA981E47B9A340C358</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>75BB52BF37A54BE6880B37F9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>77DB91D4E3A24B23A5CD1325</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7B9D84FB6F3C4F77B5C714FA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>79884B3DA21A4F6B89BFC100</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C723D9027FC4487A9E7E7B07</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>7B9D84FB6F3C4F77B5C714FA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherChannel.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherChannel.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>7BA2962965D34B47871C002B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>050FBFAD3E044673A458EB4F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>7BEA072ADCE54477AE06CE06</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTPusherChannel.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherChannel.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>7CAED82F8C064EB6AF71B68E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>0216D5D8F6AD4958B87BDED7</string>
-				<string>26FECC7371E045D09E5D0759</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>845B2242E072437C8A1E5687</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A02E83359AC74D14AB5F46DB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>8606F064A0D0425F8DE09D3D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9020562936B845249811EF43</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>88CD6EDFF93C4B189D146C95</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D2F3CE7934DE45FFAF7D7E41</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>8B7FBC6954C14D7C9DE112F3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6ACA0D77F0004EA88C3D0241</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>8B99D25842BB49C5B9ACA15B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4F1DB60A3328487EA554BBA3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>8C539375FF434486ACA36436</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>8ECFBE7AB1184CF4A16509C6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C5C3796CFC324D47BB041AE3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>9020562936B845249811EF43</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherAPI.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherAPI.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9659F57E9E8045FC8A67888E</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>0208F1E368A44D2DA581A6CC</string>
-				<string>C3EE69731A4F491C9BF963F6</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>97539EDF1D404646A1FD46A7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A8D75F266EF64091B817F48C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>9821D1F207F244008C78FBF1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>11510DFAA304457D8200947B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>9B09EF4EB779408ABFB66956</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EE3413143BC74C7AB3050C38</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>9B59D9322D914CDE865C665A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTPusher.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusher.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9B7D20C8126949F6A4E55E96</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTJSON.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTJSON.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9F57E4CEBF03408A8F6CC987</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3C0BB7ADAB50499B9224D7BC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>A02E83359AC74D14AB5F46DB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTPusher+Testing.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusher+Testing.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A28F5D78F53B40978705A528</key>
-		<dict>
-			<key>fileRef</key>
-			<string>27D7DBCC059040CA99B8AFDD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>A3B30D70DE6B4991BF4CE9A8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherMacros.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherMacros.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A3B86B0B6030492FBBB8B5CE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3A2DCA12D65C4A7783E0A2E5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>A3ECA697ECE34FF1A4254DAD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherConnection.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherConnection.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A56B8485FD5E4BE09986A439</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTPusherAPI.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherAPI.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>A837D23543984B14864A4B5C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods.a</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>A8D75F266EF64091B817F48C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTJSONParser.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTJSONParser.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>AA1375F584C54117B3774EBC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>75BB52BF37A54BE6880B37F9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAB68196564A413CB52C038B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>26C366A3DBDF4E118B499BA3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>B0898AFA981E47B9A340C358</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherEventDispatcher.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherEventDispatcher.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B21BC452DB3F4B08997FF87F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NSString+Hashing.m</string>
-			<key>path</key>
-			<string>libPusher/Library/NSString+Hashing.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>B2A963DA34BA496EB34434BB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>75BB52BF37A54BE6880B37F9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>B33F683A56B048ACA4A9D584</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C31762211CAA4B779BA1ED1C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>B3F5CB0EB47B478AB93587AC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9B7D20C8126949F6A4E55E96</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>B7D9C78BEC22420CAF7FB2FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>C723D9027FC4487A9E7E7B07</string>
-				<string>E7476015A7E140E5BE2FA958</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Reachability</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BB1C2707FA3C457DA8A26EA2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7BEA072ADCE54477AE06CE06</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>BBF6206A716042439B32E105</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0F0A6AC1EAA146E3B6CBAEA6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>C31762211CAA4B779BA1ED1C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherChannelAuthorizationOperation.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherChannelAuthorizationOperation.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C3EE69731A4F491C9BF963F6</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8C539375FF434486ACA36436</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_32_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>GCC_WARN_INHIBIT_ALL_WARNINGS</key>
-				<string>NO</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>4.3</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PODS_HEADERS_SEARCH_PATHS</key>
-				<string>${PODS_BUILD_HEADERS_SEARCH_PATHS}</string>
-				<key>PODS_ROOT</key>
-				<string>${SRCROOT}</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>C51F1A0211E5454999A16F50</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>NSData+SRB64Additions.m</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/NSData+SRB64Additions.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C53738A598A44251BA22569A</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict/>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>C5C3796CFC324D47BB041AE3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTTargetActionEventListener.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTTargetActionEventListener.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C723D9027FC4487A9E7E7B07</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>Reachability.h</string>
-			<key>path</key>
-			<string>Reachability/Reachability.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>C73ABF659B854D6680210B8A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>base64.c</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/base64.c</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D2AC3D712BC04515B16E93A7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0BFF7479439A4BD091D0F75D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>D2F3CE7934DE45FFAF7D7E41</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>PTPusherMockConnection.m</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherMockConnection.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D4BD8A872B40442DBCDCB821</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusher.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusher.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D652E5D378694789BE042B79</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTEventListener.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTEventListener.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D76CFB7F566244999BEA1B6F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods-prefix.pch</string>
-			<key>path</key>
-			<string>Pods-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>D957B230F7AE4EDCAD56B441</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>NSData+SRB64Additions.h</string>
-			<key>path</key>
-			<string>SocketRocket/SocketRocket/NSData+SRB64Additions.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>DC71E86C9885408CA06C2CFC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D652E5D378694789BE042B79</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>DCE40E747746471792AC900A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6232FBFB15874B6295DF549F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>DDBA3B854D1F4BEEA0D8632A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0FBE0326EA3644B889B32B60</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>E157E600020147CC928BC731</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A837D23543984B14864A4B5C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E39DDE5D1CD04111B1B543FC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B2A963DA34BA496EB34434BB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E7476015A7E140E5BE2FA958</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>Reachability.m</string>
-			<key>path</key>
-			<string>Reachability/Reachability.m</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>EE3413143BC74C7AB3050C38</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherErrors.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherErrors.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>F4A29475F5284FAE9E6188AC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FF4CFA8AB1064459A320F97A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>F70591B7EDFF4280A1A30312</key>
-		<dict>
-			<key>fileRef</key>
-			<string>559A6C7EC71B4ED0A38F39E7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>F8624025B6694F25AA49EECF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>JSONKit.h</string>
-			<key>path</key>
-			<string>libPusher/Library/JSONKit.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>FAD971712AC846528D31736E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B7D9C78BEC22420CAF7FB2FE</string>
-				<string>3CA5BA8E31134DFC84C03ED2</string>
-				<string>4C433404EC844BA18922D82E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FD4B240C8DE14B75941E7566</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B21BC452DB3F4B08997FF87F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0</string>
-			</dict>
-		</dict>
-		<key>FF4CFA8AB1064459A320F97A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>PTPusherPresenceChannelDelegate.h</string>
-			<key>path</key>
-			<string>libPusher/Library/PTPusherPresenceChannelDelegate.h</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>1C8D355B52644C39B4354CD2</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		040DE9D836384E029F45124D /* PTPusher.h in Headers */ = {isa = PBXBuildFile; fileRef = D4BD8A872B40442DBCDCB821 /* PTPusher.h */; };
+		0AD83A32577E4541A76810C3 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F8624025B6694F25AA49EECF /* JSONKit.h */; };
+		0E678CBD3A0C436393BFFCBA /* PTURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 68B5F0D090284F9AA5E4FDCF /* PTURLRequestOperation.h */; };
+		147414BFE5514AA4A1002C74 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = C73ABF659B854D6680210B8A /* base64.c */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		162CE8FAECFE4EBBB5FEFD41 /* PTPusherMockConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CB19E3EDCD40A89EF31C8F /* PTPusherMockConnection.h */; };
+		1BD7101D9AA64BFB8FB89761 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E7476015A7E140E5BE2FA958 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		1C426A5B609F4B6788407A8A /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E9AF222DE70492CA185D293 /* base64.h */; };
+		32BCB23BBA9840ACBEE5AFAD /* PTPusher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B59D9322D914CDE865C665A /* PTPusher.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		3434A5DC4CEF4EEDB134DFD0 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = C51F1A0211E5454999A16F50 /* NSData+SRB64Additions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		3CE3957C7356400CB1AEC6F4 /* PTPusherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A56B8485FD5E4BE09986A439 /* PTPusherAPI.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		3CE43A585F5B4E8CAD783FFE /* PTPusher+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA3B24D7CC74F4F8AECE959 /* PTPusher+Testing.h */; };
+		45945EADF98A41A5BCE945B8 /* PTTargetActionEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 036C34C1FEAD467EB8288754 /* PTTargetActionEventListener.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		480A140FE10346879FB33189 /* PTPusherMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B30D70DE6B4991BF4CE9A8 /* PTPusherMacros.h */; };
+		48AD91DC4DDE405997A17577 /* PTPusherEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6585A4E8CB4745088E08FD3C /* PTPusherEvent.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		4FBEA4C8559B49149933DD27 /* PTPusherConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = A3ECA697ECE34FF1A4254DAD /* PTPusherConnection.h */; };
+		5898082B68744B97AD951598 /* PTJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CB5BDDA53EE4DEFAB3AA4A3 /* PTJSON.h */; };
+		5A583C26D34541188E420FE0 /* PodsDummy_Pods.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FECC7371E045D09E5D0759 /* PodsDummy_Pods.m */; };
+		5C7ED3E789CD4E448AE60616 /* PTBlockEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 199D2897C76843B487B2247D /* PTBlockEventListener.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		6866D74EA26344A9A681BF85 /* NSData+SRB64Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = D957B230F7AE4EDCAD56B441 /* NSData+SRB64Additions.h */; };
+		7274262AD4DF471A9BE5129B /* PTPusherEventDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B0898AFA981E47B9A340C358 /* PTPusherEventDispatcher.h */; };
+		77DB91D4E3A24B23A5CD1325 /* PTPusherChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B9D84FB6F3C4F77B5C714FA /* PTPusherChannel.h */; };
+		79884B3DA21A4F6B89BFC100 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = C723D9027FC4487A9E7E7B07 /* Reachability.h */; };
+		7BA2962965D34B47871C002B /* NSDictionary+QueryString.h in Headers */ = {isa = PBXBuildFile; fileRef = 050FBFAD3E044673A458EB4F /* NSDictionary+QueryString.h */; };
+		845B2242E072437C8A1E5687 /* PTPusher+Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = A02E83359AC74D14AB5F46DB /* PTPusher+Testing.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		8606F064A0D0425F8DE09D3D /* PTPusherAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 9020562936B845249811EF43 /* PTPusherAPI.h */; };
+		88CD6EDFF93C4B189D146C95 /* PTPusherMockConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F3CE7934DE45FFAF7D7E41 /* PTPusherMockConnection.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		8B7FBC6954C14D7C9DE112F3 /* PTPusherEventPublisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6ACA0D77F0004EA88C3D0241 /* PTPusherEventPublisher.h */; };
+		8B99D25842BB49C5B9ACA15B /* PTBlockEventListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F1DB60A3328487EA554BBA3 /* PTBlockEventListener.h */; };
+		8ECFBE7AB1184CF4A16509C6 /* PTTargetActionEventListener.h in Headers */ = {isa = PBXBuildFile; fileRef = C5C3796CFC324D47BB041AE3 /* PTTargetActionEventListener.h */; };
+		97539EDF1D404646A1FD46A7 /* PTJSONParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A8D75F266EF64091B817F48C /* PTJSONParser.h */; };
+		9821D1F207F244008C78FBF1 /* PTPusherEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 11510DFAA304457D8200947B /* PTPusherEventDispatcher.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		9B09EF4EB779408ABFB66956 /* PTPusherErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = EE3413143BC74C7AB3050C38 /* PTPusherErrors.h */; };
+		9F57E4CEBF03408A8F6CC987 /* PTPusherChannelAuthorizationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0BB7ADAB50499B9224D7BC /* PTPusherChannelAuthorizationOperation.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		A28F5D78F53B40978705A528 /* PTPusherDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 27D7DBCC059040CA99B8AFDD /* PTPusherDelegate.h */; };
+		A3B86B0B6030492FBBB8B5CE /* NSString+Hashing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A2DCA12D65C4A7783E0A2E5 /* NSString+Hashing.h */; };
+		AAB68196564A413CB52C038B /* PTPusherConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C366A3DBDF4E118B499BA3 /* PTPusherConnection.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		B2A963DA34BA496EB34434BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BB52BF37A54BE6880B37F9 /* Foundation.framework */; };
+		B33F683A56B048ACA4A9D584 /* PTPusherChannelAuthorizationOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = C31762211CAA4B779BA1ED1C /* PTPusherChannelAuthorizationOperation.h */; };
+		B3F5CB0EB47B478AB93587AC /* PTJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D20C8126949F6A4E55E96 /* PTJSON.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		BB1C2707FA3C457DA8A26EA2 /* PTPusherChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA072ADCE54477AE06CE06 /* PTPusherChannel.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		BBF6206A716042439B32E105 /* NSDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0A6AC1EAA146E3B6CBAEA6 /* NSDictionary+QueryString.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		D2AC3D712BC04515B16E93A7 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFF7479439A4BD091D0F75D /* SRWebSocket.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		DC71E86C9885408CA06C2CFC /* PTEventListener.h in Headers */ = {isa = PBXBuildFile; fileRef = D652E5D378694789BE042B79 /* PTEventListener.h */; };
+		DCE40E747746471792AC900A /* SRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 6232FBFB15874B6295DF549F /* SRWebSocket.h */; };
+		DDBA3B854D1F4BEEA0D8632A /* PTURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBE0326EA3644B889B32B60 /* PTURLRequestOperation.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		F4A29475F5284FAE9E6188AC /* PTPusherPresenceChannelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FF4CFA8AB1064459A320F97A /* PTPusherPresenceChannelDelegate.h */; };
+		F70591B7EDFF4280A1A30312 /* PTPusherEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 559A6C7EC71B4ED0A38F39E7 /* PTPusherEvent.h */; };
+		FD4B240C8DE14B75941E7566 /* NSString+Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = B21BC452DB3F4B08997FF87F /* NSString+Hashing.m */; settings = {COMPILER_FLAGS = "-Wno-arc-performSelector-leaks -Wno-format -fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		036C34C1FEAD467EB8288754 /* PTTargetActionEventListener.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTTargetActionEventListener.m; path = libPusher/Library/PTTargetActionEventListener.m; sourceTree = SOURCE_ROOT; };
+		050FBFAD3E044673A458EB4F /* NSDictionary+QueryString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+QueryString.h"; path = "libPusher/Library/NSDictionary+QueryString.h"; sourceTree = SOURCE_ROOT; };
+		0BFF7479439A4BD091D0F75D /* SRWebSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRWebSocket.m; path = SocketRocket/SocketRocket/SRWebSocket.m; sourceTree = SOURCE_ROOT; };
+		0F0A6AC1EAA146E3B6CBAEA6 /* NSDictionary+QueryString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+QueryString.m"; path = "libPusher/Library/NSDictionary+QueryString.m"; sourceTree = SOURCE_ROOT; };
+		0FBE0326EA3644B889B32B60 /* PTURLRequestOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTURLRequestOperation.m; path = libPusher/Library/PTURLRequestOperation.m; sourceTree = SOURCE_ROOT; };
+		11510DFAA304457D8200947B /* PTPusherEventDispatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTPusherEventDispatcher.m; path = libPusher/Library/PTPusherEventDispatcher.m; sourceTree = SOURCE_ROOT; };
+		16CB19E3EDCD40A89EF31C8F /* PTPusherMockConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherMockConnection.h; path = libPusher/Library/PTPusherMockConnection.h; sourceTree = SOURCE_ROOT; };
+		199D2897C76843B487B2247D /* PTBlockEventListener.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTBlockEventListener.m; path = libPusher/Library/PTBlockEventListener.m; sourceTree = SOURCE_ROOT; };
+		225FBBED12D64E91BA11D77F /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = SOURCE_ROOT; };
+		26C366A3DBDF4E118B499BA3 /* PTPusherConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTPusherConnection.m; path = libPusher/Library/PTPusherConnection.m; sourceTree = SOURCE_ROOT; };
+		26FECC7371E045D09E5D0759 /* PodsDummy_Pods.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PodsDummy_Pods.m; sourceTree = SOURCE_ROOT; };
+		27D7DBCC059040CA99B8AFDD /* PTPusherDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherDelegate.h; path = libPusher/Library/PTPusherDelegate.h; sourceTree = SOURCE_ROOT; };
+		3A2DCA12D65C4A7783E0A2E5 /* NSString+Hashing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+Hashing.h"; path = "libPusher/Library/NSString+Hashing.h"; sourceTree = SOURCE_ROOT; };
+		3C0BB7ADAB50499B9224D7BC /* PTPusherChannelAuthorizationOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTPusherChannelAuthorizationOperation.m; path = libPusher/Library/PTPusherChannelAuthorizationOperation.m; sourceTree = SOURCE_ROOT; };
+		4DA3B24D7CC74F4F8AECE959 /* PTPusher+Testing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PTPusher+Testing.h"; path = "libPusher/Library/PTPusher+Testing.h"; sourceTree = SOURCE_ROOT; };
+		4F1DB60A3328487EA554BBA3 /* PTBlockEventListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTBlockEventListener.h; path = libPusher/Library/PTBlockEventListener.h; sourceTree = SOURCE_ROOT; };
+		559A6C7EC71B4ED0A38F39E7 /* PTPusherEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherEvent.h; path = libPusher/Library/PTPusherEvent.h; sourceTree = SOURCE_ROOT; };
+		6232FBFB15874B6295DF549F /* SRWebSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = SocketRocket/SocketRocket/SRWebSocket.h; sourceTree = SOURCE_ROOT; };
+		6585A4E8CB4745088E08FD3C /* PTPusherEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTPusherEvent.m; path = libPusher/Library/PTPusherEvent.m; sourceTree = SOURCE_ROOT; };
+		68B5F0D090284F9AA5E4FDCF /* PTURLRequestOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTURLRequestOperation.h; path = libPusher/Library/PTURLRequestOperation.h; sourceTree = SOURCE_ROOT; };
+		6ACA0D77F0004EA88C3D0241 /* PTPusherEventPublisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherEventPublisher.h; path = libPusher/Library/PTPusherEventPublisher.h; sourceTree = SOURCE_ROOT; };
+		6CB5BDDA53EE4DEFAB3AA4A3 /* PTJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTJSON.h; path = libPusher/Library/PTJSON.h; sourceTree = SOURCE_ROOT; };
+		6E9AF222DE70492CA185D293 /* base64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = base64.h; path = SocketRocket/SocketRocket/base64.h; sourceTree = SOURCE_ROOT; };
+		75BB52BF37A54BE6880B37F9 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7B9D84FB6F3C4F77B5C714FA /* PTPusherChannel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherChannel.h; path = libPusher/Library/PTPusherChannel.h; sourceTree = SOURCE_ROOT; };
+		7BEA072ADCE54477AE06CE06 /* PTPusherChannel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTPusherChannel.m; path = libPusher/Library/PTPusherChannel.m; sourceTree = SOURCE_ROOT; };
+		8C539375FF434486ACA36436 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		9020562936B845249811EF43 /* PTPusherAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherAPI.h; path = libPusher/Library/PTPusherAPI.h; sourceTree = SOURCE_ROOT; };
+		9B59D9322D914CDE865C665A /* PTPusher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTPusher.m; path = libPusher/Library/PTPusher.m; sourceTree = SOURCE_ROOT; };
+		9B7D20C8126949F6A4E55E96 /* PTJSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTJSON.m; path = libPusher/Library/PTJSON.m; sourceTree = SOURCE_ROOT; };
+		A02E83359AC74D14AB5F46DB /* PTPusher+Testing.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "PTPusher+Testing.m"; path = "libPusher/Library/PTPusher+Testing.m"; sourceTree = SOURCE_ROOT; };
+		A3B30D70DE6B4991BF4CE9A8 /* PTPusherMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherMacros.h; path = libPusher/Library/PTPusherMacros.h; sourceTree = SOURCE_ROOT; };
+		A3ECA697ECE34FF1A4254DAD /* PTPusherConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherConnection.h; path = libPusher/Library/PTPusherConnection.h; sourceTree = SOURCE_ROOT; };
+		A56B8485FD5E4BE09986A439 /* PTPusherAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTPusherAPI.m; path = libPusher/Library/PTPusherAPI.m; sourceTree = SOURCE_ROOT; };
+		A837D23543984B14864A4B5C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8D75F266EF64091B817F48C /* PTJSONParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTJSONParser.h; path = libPusher/Library/PTJSONParser.h; sourceTree = SOURCE_ROOT; };
+		B0898AFA981E47B9A340C358 /* PTPusherEventDispatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherEventDispatcher.h; path = libPusher/Library/PTPusherEventDispatcher.h; sourceTree = SOURCE_ROOT; };
+		B21BC452DB3F4B08997FF87F /* NSString+Hashing.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+Hashing.m"; path = "libPusher/Library/NSString+Hashing.m"; sourceTree = SOURCE_ROOT; };
+		C31762211CAA4B779BA1ED1C /* PTPusherChannelAuthorizationOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherChannelAuthorizationOperation.h; path = libPusher/Library/PTPusherChannelAuthorizationOperation.h; sourceTree = SOURCE_ROOT; };
+		C51F1A0211E5454999A16F50 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+SRB64Additions.m"; path = "SocketRocket/SocketRocket/NSData+SRB64Additions.m"; sourceTree = SOURCE_ROOT; };
+		C5C3796CFC324D47BB041AE3 /* PTTargetActionEventListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTTargetActionEventListener.h; path = libPusher/Library/PTTargetActionEventListener.h; sourceTree = SOURCE_ROOT; };
+		C723D9027FC4487A9E7E7B07 /* Reachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
+		C73ABF659B854D6680210B8A /* base64.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = base64.c; path = SocketRocket/SocketRocket/base64.c; sourceTree = SOURCE_ROOT; };
+		D2F3CE7934DE45FFAF7D7E41 /* PTPusherMockConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTPusherMockConnection.m; path = libPusher/Library/PTPusherMockConnection.m; sourceTree = SOURCE_ROOT; };
+		D4BD8A872B40442DBCDCB821 /* PTPusher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusher.h; path = libPusher/Library/PTPusher.h; sourceTree = SOURCE_ROOT; };
+		D652E5D378694789BE042B79 /* PTEventListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTEventListener.h; path = libPusher/Library/PTEventListener.h; sourceTree = SOURCE_ROOT; };
+		D76CFB7F566244999BEA1B6F /* Pods-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-prefix.pch"; sourceTree = SOURCE_ROOT; };
+		D957B230F7AE4EDCAD56B441 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+SRB64Additions.h"; path = "SocketRocket/SocketRocket/NSData+SRB64Additions.h"; sourceTree = SOURCE_ROOT; };
+		E7476015A7E140E5BE2FA958 /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
+		EE3413143BC74C7AB3050C38 /* PTPusherErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherErrors.h; path = libPusher/Library/PTPusherErrors.h; sourceTree = SOURCE_ROOT; };
+		F8624025B6694F25AA49EECF /* JSONKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = libPusher/Library/JSONKit.h; sourceTree = SOURCE_ROOT; };
+		FF4CFA8AB1064459A320F97A /* PTPusherPresenceChannelDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTPusherPresenceChannelDelegate.h; path = libPusher/Library/PTPusherPresenceChannelDelegate.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E39DDE5D1CD04111B1B543FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2A963DA34BA496EB34434BB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0216D5D8F6AD4958B87BDED7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				225FBBED12D64E91BA11D77F /* Pods-resources.sh */,
+				D76CFB7F566244999BEA1B6F /* Pods-prefix.pch */,
+				8C539375FF434486ACA36436 /* Pods.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3CA5BA8E31134DFC84C03ED2 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				6E9AF222DE70492CA185D293 /* base64.h */,
+				D957B230F7AE4EDCAD56B441 /* NSData+SRB64Additions.h */,
+				6232FBFB15874B6295DF549F /* SRWebSocket.h */,
+				C51F1A0211E5454999A16F50 /* NSData+SRB64Additions.m */,
+				0BFF7479439A4BD091D0F75D /* SRWebSocket.m */,
+				C73ABF659B854D6680210B8A /* base64.c */,
+			);
+			name = SocketRocket;
+			sourceTree = "<group>";
+		};
+		4C433404EC844BA18922D82E /* libPusher */ = {
+			isa = PBXGroup;
+			children = (
+				F8624025B6694F25AA49EECF /* JSONKit.h */,
+				050FBFAD3E044673A458EB4F /* NSDictionary+QueryString.h */,
+				0F0A6AC1EAA146E3B6CBAEA6 /* NSDictionary+QueryString.m */,
+				3A2DCA12D65C4A7783E0A2E5 /* NSString+Hashing.h */,
+				B21BC452DB3F4B08997FF87F /* NSString+Hashing.m */,
+				4F1DB60A3328487EA554BBA3 /* PTBlockEventListener.h */,
+				199D2897C76843B487B2247D /* PTBlockEventListener.m */,
+				D652E5D378694789BE042B79 /* PTEventListener.h */,
+				6CB5BDDA53EE4DEFAB3AA4A3 /* PTJSON.h */,
+				9B7D20C8126949F6A4E55E96 /* PTJSON.m */,
+				A8D75F266EF64091B817F48C /* PTJSONParser.h */,
+				4DA3B24D7CC74F4F8AECE959 /* PTPusher+Testing.h */,
+				A02E83359AC74D14AB5F46DB /* PTPusher+Testing.m */,
+				D4BD8A872B40442DBCDCB821 /* PTPusher.h */,
+				9B59D9322D914CDE865C665A /* PTPusher.m */,
+				9020562936B845249811EF43 /* PTPusherAPI.h */,
+				A56B8485FD5E4BE09986A439 /* PTPusherAPI.m */,
+				7B9D84FB6F3C4F77B5C714FA /* PTPusherChannel.h */,
+				7BEA072ADCE54477AE06CE06 /* PTPusherChannel.m */,
+				C31762211CAA4B779BA1ED1C /* PTPusherChannelAuthorizationOperation.h */,
+				3C0BB7ADAB50499B9224D7BC /* PTPusherChannelAuthorizationOperation.m */,
+				A3ECA697ECE34FF1A4254DAD /* PTPusherConnection.h */,
+				26C366A3DBDF4E118B499BA3 /* PTPusherConnection.m */,
+				27D7DBCC059040CA99B8AFDD /* PTPusherDelegate.h */,
+				EE3413143BC74C7AB3050C38 /* PTPusherErrors.h */,
+				559A6C7EC71B4ED0A38F39E7 /* PTPusherEvent.h */,
+				6585A4E8CB4745088E08FD3C /* PTPusherEvent.m */,
+				B0898AFA981E47B9A340C358 /* PTPusherEventDispatcher.h */,
+				11510DFAA304457D8200947B /* PTPusherEventDispatcher.m */,
+				6ACA0D77F0004EA88C3D0241 /* PTPusherEventPublisher.h */,
+				A3B30D70DE6B4991BF4CE9A8 /* PTPusherMacros.h */,
+				16CB19E3EDCD40A89EF31C8F /* PTPusherMockConnection.h */,
+				D2F3CE7934DE45FFAF7D7E41 /* PTPusherMockConnection.m */,
+				FF4CFA8AB1064459A320F97A /* PTPusherPresenceChannelDelegate.h */,
+				C5C3796CFC324D47BB041AE3 /* PTTargetActionEventListener.h */,
+				036C34C1FEAD467EB8288754 /* PTTargetActionEventListener.m */,
+				68B5F0D090284F9AA5E4FDCF /* PTURLRequestOperation.h */,
+				0FBE0326EA3644B889B32B60 /* PTURLRequestOperation.m */,
+			);
+			name = libPusher;
+			sourceTree = "<group>";
+		};
+		626148AAD7084DF8BC2CB2FC = {
+			isa = PBXGroup;
+			children = (
+				E157E600020147CC928BC731 /* Products */,
+				AA1375F584C54117B3774EBC /* Frameworks */,
+				FAD971712AC846528D31736E /* Pods */,
+				7CAED82F8C064EB6AF71B68E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7CAED82F8C064EB6AF71B68E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0216D5D8F6AD4958B87BDED7 /* Pods */,
+				26FECC7371E045D09E5D0759 /* PodsDummy_Pods.m */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		AA1375F584C54117B3774EBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75BB52BF37A54BE6880B37F9 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7D9C78BEC22420CAF7FB2FE /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				C723D9027FC4487A9E7E7B07 /* Reachability.h */,
+				E7476015A7E140E5BE2FA958 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		E157E600020147CC928BC731 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A837D23543984B14864A4B5C /* libPods.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAD971712AC846528D31736E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B7D9C78BEC22420CAF7FB2FE /* Reachability */,
+				3CA5BA8E31134DFC84C03ED2 /* SocketRocket */,
+				4C433404EC844BA18922D82E /* libPusher */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		20C405BADE4843A3B0445DBD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79884B3DA21A4F6B89BFC100 /* Reachability.h in Headers */,
+				1C426A5B609F4B6788407A8A /* base64.h in Headers */,
+				6866D74EA26344A9A681BF85 /* NSData+SRB64Additions.h in Headers */,
+				DCE40E747746471792AC900A /* SRWebSocket.h in Headers */,
+				0AD83A32577E4541A76810C3 /* JSONKit.h in Headers */,
+				7BA2962965D34B47871C002B /* NSDictionary+QueryString.h in Headers */,
+				A3B86B0B6030492FBBB8B5CE /* NSString+Hashing.h in Headers */,
+				8B99D25842BB49C5B9ACA15B /* PTBlockEventListener.h in Headers */,
+				DC71E86C9885408CA06C2CFC /* PTEventListener.h in Headers */,
+				5898082B68744B97AD951598 /* PTJSON.h in Headers */,
+				97539EDF1D404646A1FD46A7 /* PTJSONParser.h in Headers */,
+				3CE43A585F5B4E8CAD783FFE /* PTPusher+Testing.h in Headers */,
+				040DE9D836384E029F45124D /* PTPusher.h in Headers */,
+				8606F064A0D0425F8DE09D3D /* PTPusherAPI.h in Headers */,
+				77DB91D4E3A24B23A5CD1325 /* PTPusherChannel.h in Headers */,
+				B33F683A56B048ACA4A9D584 /* PTPusherChannelAuthorizationOperation.h in Headers */,
+				4FBEA4C8559B49149933DD27 /* PTPusherConnection.h in Headers */,
+				A28F5D78F53B40978705A528 /* PTPusherDelegate.h in Headers */,
+				9B09EF4EB779408ABFB66956 /* PTPusherErrors.h in Headers */,
+				F70591B7EDFF4280A1A30312 /* PTPusherEvent.h in Headers */,
+				7274262AD4DF471A9BE5129B /* PTPusherEventDispatcher.h in Headers */,
+				8B7FBC6954C14D7C9DE112F3 /* PTPusherEventPublisher.h in Headers */,
+				480A140FE10346879FB33189 /* PTPusherMacros.h in Headers */,
+				162CE8FAECFE4EBBB5FEFD41 /* PTPusherMockConnection.h in Headers */,
+				F4A29475F5284FAE9E6188AC /* PTPusherPresenceChannelDelegate.h in Headers */,
+				8ECFBE7AB1184CF4A16509C6 /* PTTargetActionEventListener.h in Headers */,
+				0E678CBD3A0C436393BFFCBA /* PTURLRequestOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		09BCD002A34C4F0DA0B7D57C /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9659F57E9E8045FC8A67888E /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				4300E5963A014C00B812FE3D /* Sources */,
+				E39DDE5D1CD04111B1B543FC /* Frameworks */,
+				20C405BADE4843A3B0445DBD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = A837D23543984B14864A4B5C /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C8D355B52644C39B4354CD2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = 3048709190EF4953A49EAE7E /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 626148AAD7084DF8BC2CB2FC;
+			productRefGroup = E157E600020147CC928BC731 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09BCD002A34C4F0DA0B7D57C /* Pods */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4300E5963A014C00B812FE3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD7101D9AA64BFB8FB89761 /* Reachability.m in Sources */,
+				3434A5DC4CEF4EEDB134DFD0 /* NSData+SRB64Additions.m in Sources */,
+				D2AC3D712BC04515B16E93A7 /* SRWebSocket.m in Sources */,
+				147414BFE5514AA4A1002C74 /* base64.c in Sources */,
+				BBF6206A716042439B32E105 /* NSDictionary+QueryString.m in Sources */,
+				FD4B240C8DE14B75941E7566 /* NSString+Hashing.m in Sources */,
+				5C7ED3E789CD4E448AE60616 /* PTBlockEventListener.m in Sources */,
+				B3F5CB0EB47B478AB93587AC /* PTJSON.m in Sources */,
+				845B2242E072437C8A1E5687 /* PTPusher+Testing.m in Sources */,
+				32BCB23BBA9840ACBEE5AFAD /* PTPusher.m in Sources */,
+				3CE3957C7356400CB1AEC6F4 /* PTPusherAPI.m in Sources */,
+				BB1C2707FA3C457DA8A26EA2 /* PTPusherChannel.m in Sources */,
+				9F57E4CEBF03408A8F6CC987 /* PTPusherChannelAuthorizationOperation.m in Sources */,
+				AAB68196564A413CB52C038B /* PTPusherConnection.m in Sources */,
+				48AD91DC4DDE405997A17577 /* PTPusherEvent.m in Sources */,
+				9821D1F207F244008C78FBF1 /* PTPusherEventDispatcher.m in Sources */,
+				88CD6EDFF93C4B189D146C95 /* PTPusherMockConnection.m in Sources */,
+				45945EADF98A41A5BCE945B8 /* PTTargetActionEventListener.m in Sources */,
+				DDBA3B854D1F4BEEA0D8632A /* PTURLRequestOperation.m in Sources */,
+				5A583C26D34541188E420FE0 /* PodsDummy_Pods.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0208F1E368A44D2DA581A6CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C539375FF434486ACA36436 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
+				PODS_ROOT = "${SRCROOT}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5790B386C7374B3C81DD8CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		C3EE69731A4F491C9BF963F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C539375FF434486ACA36436 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				PODS_HEADERS_SEARCH_PATHS = "${PODS_BUILD_HEADERS_SEARCH_PATHS}";
+				PODS_ROOT = "${SRCROOT}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C53738A598A44251BA22569A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3048709190EF4953A49EAE7E /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C53738A598A44251BA22569A /* Release */,
+				5790B386C7374B3C81DD8CF0 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9659F57E9E8045FC8A67888E /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0208F1E368A44D2DA581A6CC /* Release */,
+				C3EE69731A4F491C9BF963F6 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C8D355B52644C39B4354CD2 /* Project object */;
+}
