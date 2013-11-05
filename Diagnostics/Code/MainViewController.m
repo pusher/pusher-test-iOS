@@ -82,7 +82,6 @@
 
     // setup client
     _client = [PTPusher pusherWithKey:kPusherKey delegate:self encrypted:encrypted];
-    _client.reconnectAutomatically = reconnect;
     _client.reconnectDelay = 3.0;
     
     // change view / logs
@@ -150,6 +149,12 @@
     _pusherConnectionView.status = PDStatusViewStatusDisconnected;
     _connectButton.enabled = YES;
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+}
+
+- (BOOL)pusher:(PTPusher *)pusher connectionWillConnect:(PTPusherConnection *)connection
+{
+    // TODO: Switch this behaviour dependant on the reconnect switch
+    return YES;
 }
 
 - (void)pusher:(PTPusher *)pusher connectionWillReconnect:(PTPusherConnection *)connection afterDelay:(NSTimeInterval)delay
