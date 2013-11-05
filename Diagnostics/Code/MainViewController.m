@@ -138,10 +138,10 @@
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
 }
 
-- (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection didDisconnectWithError:(NSError *)error
+- (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection didDisconnectWithError:(NSError *)error willAttemptReconnect:(BOOL)reconnect
 {
     if (error) {
-        [[PDLogger sharedInstance] logError:@"[Pusher] disconnected: %@", [error localizedDescription]];
+        [[PDLogger sharedInstance] logError:@"[Pusher] didDisconnectWithError: %@ willAttemptReconnect: %@", [error localizedDescription], (reconnect ? @"YES" : @"NO")];
     } else {
         [[PDLogger sharedInstance] logInfo:@"[Pusher] disconnected"];
     }
