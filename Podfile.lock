@@ -5,12 +5,12 @@ PODS:
   - SocketRocket (0.2.0)
 
 DEPENDENCIES:
-  - libPusher (from `git://github.com/mloughran/libPusher.git`, branch `fixes_to_podspec`)
+  - libPusher (from `git://github.com/mloughran/libPusher.git`, branch `r1.5`)
   - Reachability (~> 3.1.0)
 
 EXTERNAL SOURCES:
   libPusher:
-    :branch: fixes_to_podspec
+    :branch: r1.5
     :git: git://github.com/mloughran/libPusher.git
 
 SPEC CHECKSUMS:
