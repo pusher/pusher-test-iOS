@@ -78,7 +78,6 @@
 - (void)_setupPusher
 {
     BOOL encrypted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsSSLEnabled];
-    BOOL reconnect = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
 
     // setup client
     _client = [PTPusher pusherWithKey:kPusherKey delegate:self encrypted:encrypted];
@@ -116,9 +115,7 @@
     BOOL encrypted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsSSLEnabled];
     NSString *sslStatus = encrypted ? @"SSL" : @"non SSL";
     
-    NSString *reconnectStatus = _client.reconnectAutomatically ? @"ON" : @"OFF";
-    
-    [[PDLogger sharedInstance] logSuccess:@"[Pusher] connected (%@) (reconnect %@)", sslStatus, reconnectStatus];
+    [[PDLogger sharedInstance] logSuccess:@"[Pusher] connected (%@)", sslStatus];
     
     _pusherConnectionView.status = PDStatusViewStatusConnected;
     _connectButton.enabled = YES;
@@ -421,9 +418,6 @@
     // user defaults
     [[NSUserDefaults standardUserDefaults] setBool:reconnectSwitch.on forKey:kUserDefaultsReconnectEnabled];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    // reconfigure pusher client
-    _client.reconnectAutomatically = reconnectSwitch.on;
 }
 
 - (void)_infoButtonPressed:(id)sender
