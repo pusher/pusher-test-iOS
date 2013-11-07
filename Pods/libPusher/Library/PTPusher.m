@@ -309,7 +309,8 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
     }
   }
   else {
-    [self handleDisconnection:connection error:error willReconnect:NO];
+    [self handleDisconnection:connection error:error willReconnect:YES];
+    [self reconnectAfterDelay:self.reconnectDelay];
   }
 }
 

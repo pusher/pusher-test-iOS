@@ -1,7 +1,7 @@
 PODS:
   - libPusher (1.4):
     - SocketRocket (= 0.2)
-  - Reachability (3.1.0)
+  - Reachability (3.1.1)
   - SocketRocket (0.2.0)
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   libPusher: a486f170cbe20b8763625ddf9f1f1e5cc3e3b8db
-  Reachability: ba94ecd4eaa037be3d0588b38956672588530c5b
+  Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
   SocketRocket: bca43a94bd9aac3a629df42c06843402399ee67b
 
 COCOAPODS: 0.27.1
