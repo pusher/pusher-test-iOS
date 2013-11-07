@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSInteger, PDStatusViewStatus) {
     PDStatusViewStatusConnecting,
     PDStatusViewStatusReconnecting,
+    PDStatusViewStatusWaiting,
     PDStatusViewStatusConnected,
     PDStatusViewStatusConnectedWiFi,
     PDStatusViewStatusConnectedCellular,

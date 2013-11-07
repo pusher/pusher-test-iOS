@@ -153,18 +153,29 @@
 
 - (BOOL)pusher:(PTPusher *)pusher connectionWillConnect:(PTPusherConnection *)connection
 {
-    // TODO: Switch this behaviour dependant on the reconnect switch
+    [[PDLogger sharedInstance] logInfo:@"[Pusher] connecting"];
+    _pusherConnectionView.status = PDStatusViewStatusConnecting;
+
     return YES;
 }
 
-- (void)pusher:(PTPusher *)pusher connectionWillReconnect:(PTPusherConnection *)connection afterDelay:(NSTimeInterval)delay
+- (BOOL)pusher:(PTPusher *)pusher connectionWillAutomaticallyReconnect:(PTPusherConnection *)connection afterDelay:(NSTimeInterval)delay
 {
-    [[PDLogger sharedInstance] logInfo:@"[Pusher] connection will reconnect in %.0f seconds", delay];
-    _pusherConnectionView.status = PDStatusViewStatusReconnecting;
-    _connectButton.enabled = NO;
-    [_connectButton setTitle:@"Reconnecting" forState:UIControlStateNormal];
+    BOOL reconnect = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
     
-    [[PDLogger sharedInstance] logInfo:@"[Pusher] connecting..."];
+    if (reconnect) {
+        [[PDLogger sharedInstance] logInfo:@"[Pusher] will reconnect in %.0f seconds", delay];
+        _pusherConnectionView.status = PDStatusViewStatusWaiting;
+        _connectButton.enabled = NO;
+        [_connectButton setTitle:@"Reconnecting" forState:UIControlStateNormal];
+    } else {
+        [[PDLogger sharedInstance] logInfo:@"[Pusher] will not automatically reconnect", delay];
+        _pusherConnectionView.status = PDStatusViewStatusDisconnected;
+        _connectButton.enabled = YES;
+        [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+    }
+
+    return reconnect;
 }
 
 
@@ -263,7 +274,6 @@
 
 - (void)_pusherConnecting
 {
-    [[PDLogger sharedInstance] logInfo:@"[Pusher] connecting..."];
     _pusherConnectionView.status = PDStatusViewStatusConnecting;
     _connectButton.enabled = NO;
     [_connectButton setTitle:@"Connecting" forState:UIControlStateNormal];
