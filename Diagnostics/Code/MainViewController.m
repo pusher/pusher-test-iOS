@@ -381,7 +381,7 @@
 
 - (IBAction)triggerEventButtonPressed:(id)sender
 {
-    [[PDLogger sharedInstance] logInfo:@"[Server] generating and sending event..."];
+    [[PDLogger sharedInstance] logInfo:@"[Server] triggering event via REST API"];
 
     _triggerEventButton.enabled = NO;
     [self _sendEventTriggerRequest];
