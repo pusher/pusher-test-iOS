@@ -282,11 +282,12 @@ support@pusher.com</string>
                                 <rect key="frame" x="20" y="199" width="280" height="349"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Our goal is to take away the management and operations of a company's realtime infrastructure, so that developers can focus energy on the features of their product that make them unique.
-
  http://pusher.com
  support@pusher.com
+ Built using libPusher:
+http://github.com/lukeredpath/libPusher
 
- Built using libPusher. http://github.com/lukeredpath/libPusher</string>
+libPusher version: (1.5 prerelease, SHA 47e81f9c)</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
