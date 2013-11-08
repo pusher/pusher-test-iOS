@@ -317,7 +317,8 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
 - (void)pusherConnection:(PTPusherConnection *)connection didFailWithError:(NSError *)error wasConnected:(BOOL)wasConnected
 {
   if (wasConnected) {
-    [self handleDisconnection:connection error:error willReconnect:NO];
+    [self handleDisconnection:connection error:error willReconnect:YES];
+    [self reconnectAfterDelay:self.reconnectDelay];
   }
   else {
     if ([self.delegate respondsToSelector:@selector(pusher:connection:failedWithError:)]) {
