@@ -279,6 +279,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Pusher;
+				TargetAttributes = {
+					4D061A7D16EF7EE90066B404 = {
+						DevelopmentTeam = H7FL434D9W;
+					};
+				};
 			};
 			buildConfigurationList = 4D061A7916EF7EE90066B404 /* Build configuration list for PBXProject "Diagnostics" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -444,11 +449,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C489B0750634AF4B9805F3D /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Diagnostics/Resources/Diagnostics-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Diagnostics/Resources/Diagnostics-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -457,8 +465,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C489B0750634AF4B9805F3D /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Diagnostics/Resources/Diagnostics-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Diagnostics/Resources/Diagnostics-Info.plist";

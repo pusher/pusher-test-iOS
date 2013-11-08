@@ -58,7 +58,11 @@
      and the target/action binding object.
      */
     
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_5_0
+    __weak PTPusherChannel *weakChannel = self;
+#else
     __unsafe_unretained PTPusherChannel *weakChannel = self;
+#endif
     
     [internalBindings addObject:
      [self bindToEventNamed:@"pusher_internal:subscription_succeeded" 
@@ -237,8 +241,15 @@
     completionHandler(operation.isAuthorized, operation.authorizationData, operation.error);
   }];
   
-  if ([pusher.delegate respondsToSelector:@selector(pusher:willAuthorizeChannelWithRequest:)]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+  if ([pusher.delegate respondsToSelector:@selector(pusher:willAuthorizeChannelWithRequest:)]) { // deprecated call
     [pusher.delegate pusher:pusher willAuthorizeChannelWithRequest:authOperation.mutableURLRequest];
+  }
+#pragma clang diagnostic pop
+    
+  if ([pusher.delegate respondsToSelector:@selector(pusher:willAuthorizeChannel:withRequest:)]) {
+    [pusher.delegate pusher:pusher willAuthorizeChannel:self withRequest:authOperation.mutableURLRequest];
   }
   
   [pusher beginAuthorizationOperation:authOperation];
@@ -264,8 +275,13 @@
     eventName = [@"client-" stringByAppendingString:eventName];
   }
   
-  __unsafe_unretained PTPusherChannel *weakSelf = self;
-  __unsafe_unretained PTPusher *weakPusher = pusher;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_5_0
+    __weak PTPusherChannel *weakSelf = self;
+    __weak PTPusher *weakPusher = pusher;
+#else
+    __unsafe_unretained PTPusherChannel *weakSelf = self;
+    __unsafe_unretained PTPusher *weakPusher = pusher;
+#endif
   
   [clientEventQueue addOperationWithBlock:^{
     [weakPusher sendEventNamed:eventName data:eventData channel:weakSelf.name];
@@ -290,8 +306,12 @@
     /* Set up event handlers for pre-defined channel events.
      As above, use blocks as proxies to a weak channel reference to avoid retain cycles.
      */
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_5_0
+      __weak PTPusherPresenceChannel *weakChannel = self;
+#else
+      __unsafe_unretained PTPusherPresenceChannel *weakChannel = self;
+#endif
     
-    __unsafe_unretained PTPusherPresenceChannel *weakChannel = self;
     
     [internalBindings addObject:
      [self bindToEventNamed:@"pusher_internal:member_added" 

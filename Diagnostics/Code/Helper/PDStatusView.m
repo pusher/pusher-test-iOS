@@ -63,6 +63,11 @@
             text = @"Connecting...";
             color = [UIColor pusherDiagnosticsWarn];
             break;
+
+        case PDStatusViewStatusWaiting:
+            text = @"Waiting...";
+            color = [UIColor pusherDiagnosticsWarn];
+            break;
             
         case PDStatusViewStatusReconnecting:
             text = @"Reconnecting...";

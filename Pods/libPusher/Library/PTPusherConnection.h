@@ -14,6 +14,7 @@
 @class PTPusherEvent;
 
 @protocol PTPusherConnectionDelegate <NSObject>
+- (BOOL)pusherConnectionWillConnect:(PTPusherConnection *)connection;
 - (void)pusherConnectionDidConnect:(PTPusherConnection *)connection;
 - (void)pusherConnection:(PTPusherConnection *)connection didDisconnectWithCode:(NSInteger)errorCode reason:(NSString *)reason wasClean:(BOOL)wasClean;
 - (void)pusherConnection:(PTPusherConnection *)connection didFailWithError:(NSError *)error wasConnected:(BOOL)wasConnected;
@@ -24,18 +25,31 @@ extern NSString *const PTPusherConnectionEstablishedEvent;
 extern NSString *const PTPusherConnectionPingEvent;
 
 typedef enum {
-  PTPusherConnectionClosing = 0,
-  PTPusherConnectionClosed,
-  PTPusherConnectionOpening,
-  PTPusherConnectionOpenAwaitingHandshake,
-  PTPusherConnectionOpenHandshakeReceived
+  PTPusherConnectionDisconnecting = 0,
+  PTPusherConnectionDisconnected,
+  PTPusherConnectionConnecting,
+  PTPusherConnectionAwaitingHandshake,
+  PTPusherConnectionConnected
 } PTPusherConnectionState;
 
 @interface PTPusherConnection : NSObject <SRWebSocketDelegate>
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_5_0
+@property (nonatomic, weak) id<PTPusherConnectionDelegate> delegate;
+#else
 @property (nonatomic, unsafe_unretained) id<PTPusherConnectionDelegate> delegate;
+#endif
 @property (nonatomic, readonly, getter=isConnected) BOOL connected;
 @property (nonatomic, copy, readonly) NSString *socketID;
+
+/* If the connection does not receive any new data within the time specified,
+ * a ping event will be sent.
+ */
+@property (nonatomic, assign) NSTimeInterval activityTimeout;
+
+/* The amount of time to wait for a pong in response to a ping before disconnecting.
+ */
+@property (nonatomic, assign) NSTimeInterval pongTimeout;
 
 ///------------------------------------------------------------------------------------/
 /// @name Initialisation

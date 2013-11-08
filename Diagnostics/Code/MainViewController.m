@@ -78,11 +78,9 @@
 - (void)_setupPusher
 {
     BOOL encrypted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsSSLEnabled];
-    BOOL reconnect = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
 
     // setup client
     _client = [PTPusher pusherWithKey:kPusherKey delegate:self encrypted:encrypted];
-    _client.reconnectAutomatically = reconnect;
     _client.reconnectDelay = 3.0;
     
     // change view / logs
@@ -117,9 +115,7 @@
     BOOL encrypted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsSSLEnabled];
     NSString *sslStatus = encrypted ? @"SSL" : @"non SSL";
     
-    NSString *reconnectStatus = _client.reconnectAutomatically ? @"ON" : @"OFF";
-    
-    [[PDLogger sharedInstance] logSuccess:@"[Pusher] connected (%@) (reconnect %@)", sslStatus, reconnectStatus];
+    [[PDLogger sharedInstance] logSuccess:@"[Pusher] connected (%@)", sslStatus];
     
     _pusherConnectionView.status = PDStatusViewStatusConnected;
     _connectButton.enabled = YES;
@@ -139,10 +135,10 @@
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
 }
 
-- (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection didDisconnectWithError:(NSError *)error
+- (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection didDisconnectWithError:(NSError *)error willAttemptReconnect:(BOOL)reconnect
 {
     if (error) {
-        [[PDLogger sharedInstance] logError:@"[Pusher] disconnected: %@", [error localizedDescription]];
+        [[PDLogger sharedInstance] logError:@"[Pusher] didDisconnectWithError: %@ willAttemptReconnect: %@", [error localizedDescription], (reconnect ? @"YES" : @"NO")];
     } else {
         [[PDLogger sharedInstance] logInfo:@"[Pusher] disconnected"];
     }
@@ -152,14 +148,31 @@
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
 }
 
-- (void)pusher:(PTPusher *)pusher connectionWillReconnect:(PTPusherConnection *)connection afterDelay:(NSTimeInterval)delay
+- (BOOL)pusher:(PTPusher *)pusher connectionWillConnect:(PTPusherConnection *)connection
 {
-    [[PDLogger sharedInstance] logInfo:@"[Pusher] connection will reconnect in %.0f seconds", delay];
-    _pusherConnectionView.status = PDStatusViewStatusReconnecting;
-    _connectButton.enabled = NO;
-    [_connectButton setTitle:@"Reconnecting" forState:UIControlStateNormal];
+    [[PDLogger sharedInstance] logInfo:@"[Pusher] connecting"];
+    _pusherConnectionView.status = PDStatusViewStatusConnecting;
+
+    return YES;
+}
+
+- (BOOL)pusher:(PTPusher *)pusher connectionWillAutomaticallyReconnect:(PTPusherConnection *)connection afterDelay:(NSTimeInterval)delay
+{
+    BOOL reconnect = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
     
-    [[PDLogger sharedInstance] logInfo:@"[Pusher] connecting..."];
+    if (reconnect) {
+        [[PDLogger sharedInstance] logInfo:@"[Pusher] will reconnect in %.0f seconds", delay];
+        _pusherConnectionView.status = PDStatusViewStatusWaiting;
+        _connectButton.enabled = NO;
+        [_connectButton setTitle:@"Reconnecting" forState:UIControlStateNormal];
+    } else {
+        [[PDLogger sharedInstance] logInfo:@"[Pusher] will not automatically reconnect", delay];
+        _pusherConnectionView.status = PDStatusViewStatusDisconnected;
+        _connectButton.enabled = YES;
+        [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+    }
+
+    return reconnect;
 }
 
 
@@ -237,7 +250,7 @@
 
 - (void)_appDidBecomeActive:(NSNotification *)notification
 {
-    [[PDLogger sharedInstance] logInfo:@"[App] did become active"];
+    [[PDLogger sharedInstance] logInfo:@"[App] did become active, connection status is %@", _client.connection.connected ? @"connected" : @"disconnected"];
     
     // work around
     // to make sure the state of the app is consistent even after
@@ -258,7 +271,6 @@
 
 - (void)_pusherConnecting
 {
-    [[PDLogger sharedInstance] logInfo:@"[Pusher] connecting..."];
     _pusherConnectionView.status = PDStatusViewStatusConnecting;
     _connectButton.enabled = NO;
     [_connectButton setTitle:@"Connecting" forState:UIControlStateNormal];
@@ -369,7 +381,7 @@
 
 - (IBAction)triggerEventButtonPressed:(id)sender
 {
-    [[PDLogger sharedInstance] logInfo:@"[Server] generating and sending event..."];
+    [[PDLogger sharedInstance] logInfo:@"[Server] triggering event via REST API"];
 
     _triggerEventButton.enabled = NO;
     [self _sendEventTriggerRequest];
@@ -406,9 +418,6 @@
     // user defaults
     [[NSUserDefaults standardUserDefaults] setBool:reconnectSwitch.on forKey:kUserDefaultsReconnectEnabled];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    // reconfigure pusher client
-    _client.reconnectAutomatically = reconnectSwitch.on;
 }
 
 - (void)_infoButtonPressed:(id)sender

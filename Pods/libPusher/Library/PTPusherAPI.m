@@ -57,8 +57,6 @@
   [request setHTTPBody:bodyData];
   [request setHTTPMethod:@"POST"];
   [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    NSLog(@"request: %@", URLString);
 
   PTURLRequestOperation *operation = [[PTURLRequestOperation alloc] initWithURLRequest:request];
   [operationQueue addOperation:operation];

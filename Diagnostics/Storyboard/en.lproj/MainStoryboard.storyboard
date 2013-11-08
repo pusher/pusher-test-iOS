@@ -20,6 +20,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxU-BA-AQx">
                                 <rect key="frame" x="20" y="219" width="136" height="44"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="136" id="0GG-ta-FZp"/>
                                     <constraint firstAttribute="height" constant="44" id="2U6-42-dQG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
@@ -42,6 +43,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHK-YY-DR7">
                                 <rect key="frame" x="20" y="504" width="136" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="aZm-yx-BNB"/>
+                                    <constraint firstAttribute="width" constant="136" id="ltH-ml-hIi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Clear Log" backgroundImage="button_background.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,6 +67,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMw-Mh-13s">
                                 <rect key="frame" x="164" y="504" width="136" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Evp-Qm-b2q"/>
+                                    <constraint firstAttribute="width" constant="136" id="v0H-Ir-gFh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Email Support" backgroundImage="button_background.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,22 +179,19 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SSL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvi-Hx-awb">
-                                <rect key="frame" x="20" y="185" width="33" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="2ge-co-NT1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <rect key="frame" x="20" y="188" width="22" height="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Auto Reconnect" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ap-Nf-iqR">
-                                <rect key="frame" x="124" y="185" width="119" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <rect key="frame" x="159" y="188" width="84" height="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DFh-80-BbM">
-                                <rect key="frame" x="61" y="180" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DFh-80-BbM">
+                                <rect key="frame" x="50" y="180" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="sslSwitchChanged:" destination="2" eventType="valueChanged" id="r97-KM-W5d"/>
@@ -194,6 +200,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.91809475806451613" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yxU-BA-AQx" firstAttribute="top" secondItem="DFh-80-BbM" secondAttribute="bottom" constant="8" id="4Nb-Sf-O40"/>
                             <constraint firstItem="mJG-Op-Iy8" firstAttribute="top" secondItem="mta-RH-pQh" secondAttribute="bottom" constant="8" id="5eg-1T-vbT"/>
                             <constraint firstItem="KEU-oj-PAe" firstAttribute="top" secondItem="XHK-YY-DR7" secondAttribute="bottom" constant="20" id="BkX-v2-J8m"/>
                             <constraint firstItem="Fvi-Hx-awb" firstAttribute="baseline" secondItem="0Ap-Nf-iqR" secondAttribute="baseline" id="EtG-N3-9VK"/>
@@ -210,7 +217,9 @@
                             <constraint firstItem="wMw-Mh-13s" firstAttribute="top" secondItem="KGp-I4-XLn" secondAttribute="bottom" constant="8" symbolic="YES" id="Xbq-QW-fPu"/>
                             <constraint firstItem="Fvi-Hx-awb" firstAttribute="centerY" secondItem="mta-RH-pQh" secondAttribute="centerY" id="YBN-Gc-pb2"/>
                             <constraint firstAttribute="trailing" secondItem="fud-u4-QFH" secondAttribute="trailing" constant="20" symbolic="YES" id="YZ2-z7-sjR"/>
+                            <constraint firstItem="DFh-80-BbM" firstAttribute="top" secondItem="fud-u4-QFH" secondAttribute="bottom" constant="8" id="YhO-uN-qlW"/>
                             <constraint firstAttribute="trailing" secondItem="mJG-Op-Iy8" secondAttribute="trailing" constant="20" symbolic="YES" id="bHM-JT-Rsv"/>
+                            <constraint firstItem="DFh-80-BbM" firstAttribute="leading" secondItem="Fvi-Hx-awb" secondAttribute="trailing" constant="8" id="cWk-Xd-87w"/>
                             <constraint firstItem="Fvi-Hx-awb" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" id="heo-4i-N1U"/>
                             <constraint firstItem="KGp-I4-XLn" firstAttribute="top" secondItem="mJG-Op-Iy8" secondAttribute="bottom" constant="8" symbolic="YES" id="lEW-1x-fsP"/>
                             <constraint firstItem="fud-u4-QFH" firstAttribute="top" secondItem="mDU-ez-b0x" secondAttribute="bottom" constant="8" id="tro-Q4-NIW"/>
@@ -273,11 +282,12 @@ support@pusher.com</string>
                                 <rect key="frame" x="20" y="199" width="280" height="349"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Our goal is to take away the management and operations of a company's realtime infrastructure, so that developers can focus energy on the features of their product that make them unique.
-
  http://pusher.com
  support@pusher.com
+ Built using libPusher:
+http://github.com/lukeredpath/libPusher
 
- Built using libPusher. http://github.com/lukeredpath/libPusher</string>
+libPusher version: (1.5 prerelease, SHA 47e81f9c)</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
