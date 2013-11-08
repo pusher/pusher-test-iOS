@@ -250,7 +250,7 @@
 
 - (void)_appDidBecomeActive:(NSNotification *)notification
 {
-    [[PDLogger sharedInstance] logInfo:@"[App] did become active"];
+    [[PDLogger sharedInstance] logInfo:@"[App] did become active, connection status is %@", _client.connection.connected ? @"connected" : @"disconnected"];
     
     // work around
     // to make sure the state of the app is consistent even after
