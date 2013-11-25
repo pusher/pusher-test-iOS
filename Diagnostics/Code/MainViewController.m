@@ -24,6 +24,8 @@
     Reachability *_reachability;
     NSOperationQueue *_queue;
     BOOL _reconnectsWhenReachabilityChanges;
+    NSInteger _manualReconnectAttempts;
+    NSInteger _manualReconnectAttemptLimit;
 }
 @end
 
@@ -32,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _manualReconnectAttemptLimit = 3;
     
     // navigationbar
     UIImage *navigationBarBackground = [UIImage imageNamed:@"navigationbar_background_logo.png"];
@@ -115,6 +119,8 @@
 
 - (void)pusher:(PTPusher *)pusher connectionDidConnect:(PTPusherConnection *)connection
 {
+    _manualReconnectAttempts = 0;
+    
     BOOL encrypted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsSSLEnabled];
     NSString *sslStatus = encrypted ? @"SSL" : @"non SSL";
     
@@ -198,21 +204,29 @@
      *
      * If we do have reachability, then we will optimistically try and reconnect, but we should probably
      * implement some kind of counter to prevent an endless loop of failure -> connect -> failure.
-     *
-     * TODO: implement reconnect counter.
      */
     BOOL reconnect = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
     
-    if (reconnect) {
+    if (reconnect && _manualReconnectAttempts < _manualReconnectAttemptLimit) {
         if ([_reachability isReachable]) {
             [[PDLogger sharedInstance] logError:@"[Pusher] internet reachable so re-connecting manually."];
-            [_client connect];
+            [self performManualReconnect];
         }
         else {
             [[PDLogger sharedInstance] logError:@"[Pusher] will attempt re-connect when reachability changes."];
             _reconnectsWhenReachabilityChanges = YES;
         }
     }
+    else if (_manualReconnectAttempts == _manualReconnectAttemptLimit) {
+        [[PDLogger sharedInstance] logError:@"[Pusher] reached manual reconnection limit."];
+    }
+}
+
+- (void)performManualReconnect
+{
+    [_client connect];
+    _manualReconnectAttempts++;
+    [[PDLogger sharedInstance] logError:@"[Pusher] manual reconnect attempt %d of %d.", _manualReconnectAttempts, _manualReconnectAttemptLimit];
 }
 
 //////////////////////////////////
@@ -337,7 +351,7 @@
     }
     
     if (_reconnectsWhenReachabilityChanges) {
-        [_client connect];
+        [self performManualReconnect];
         _reconnectsWhenReachabilityChanges = NO;
     }
     
