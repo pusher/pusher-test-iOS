@@ -152,7 +152,8 @@
     _connectButton.enabled = YES;
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
     
-    if (!reconnect) {
+    // we check the error domain as we never want to reconnect if we disconnected with a 4000-4099 error
+    if (!reconnect && ![error.domain isEqualToString:PTPusherErrorDomain]) {
         [self handleDisconnectionsWithThatWillNotAutoReconnect];
     }
 }
