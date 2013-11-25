@@ -119,7 +119,9 @@
 				4D061A7F16EF7EE90066B404 /* Products */,
 				5C489B0750634AF4B9805F3D /* Pods.xcconfig */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		4D061A7F16EF7EE90066B404 /* Products */ = {
 			isa = PBXGroup;
