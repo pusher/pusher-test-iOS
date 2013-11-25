@@ -82,6 +82,8 @@
     // setup client
     _client = [PTPusher pusherWithKey:kPusherKey delegate:self encrypted:encrypted];
     _client.reconnectDelay = 3.0;
+  
+    [_client connect];
     
     // change view / logs
     [self _pusherConnecting];
