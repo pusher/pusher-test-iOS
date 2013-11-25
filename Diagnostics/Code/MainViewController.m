@@ -23,6 +23,7 @@
     PTPusher *_client;
     Reachability *_reachability;
     NSOperationQueue *_queue;
+    BOOL _reconnectsWhenReachabilityChanges;
 }
 @end
 
@@ -135,6 +136,8 @@
     _pusherConnectionView.status = PDStatusViewStatusDisconnected;
     _connectButton.enabled = YES;
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+    
+    [self handleDisconnectionsWithThatWillNotAutoReconnect];
 }
 
 - (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection didDisconnectWithError:(NSError *)error willAttemptReconnect:(BOOL)reconnect
@@ -148,6 +151,10 @@
     _pusherConnectionView.status = PDStatusViewStatusDisconnected;
     _connectButton.enabled = YES;
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+    
+    if (!reconnect) {
+        [self handleDisconnectionsWithThatWillNotAutoReconnect];
+    }
 }
 
 - (BOOL)pusher:(PTPusher *)pusher connectionWillConnect:(PTPusherConnection *)connection
@@ -177,6 +184,35 @@
     return reconnect;
 }
 
+- (void)handleDisconnectionsWithThatWillNotAutoReconnect
+{
+    /* Pusher will not auto-reconnect in the following circumstances:
+     *   1. Connection failed on initial connection attempt (calls pusher:connection:failedWithError:)
+     *   2. Connection failed whilst connected (treated as a disconnect, typically due to network failure)
+     *   3. Connection disconnected with error code in 4000-4099 range
+     *
+     * Ignoring the third scenario, we can handle this by checking to see if we have reachability and
+     * if we don't, waiting for reachability to change before manually reconnecting if the user
+     * has toggled auto-reconnect.
+     *
+     * If we do have reachability, then we will optimistically try and reconnect, but we should probably
+     * implement some kind of counter to prevent an endless loop of failure -> connect -> failure.
+     *
+     * TODO: implement reconnect counter.
+     */
+    BOOL reconnect = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
+    
+    if (reconnect) {
+        if ([_reachability isReachable]) {
+            [[PDLogger sharedInstance] logError:@"[Pusher] internet reachable so re-connecting manually."];
+            [_client connect];
+        }
+        else {
+            [[PDLogger sharedInstance] logError:@"[Pusher] will attempt re-connect when reachability changes."];
+            _reconnectsWhenReachabilityChanges = YES;
+        }
+    }
+}
 
 //////////////////////////////////
 #pragma mark - Pusher Delegate Channel
@@ -297,6 +333,11 @@
         _internetConnectionView.status = PDStatusViewStatusConnectedWiFi;
     } else {
         _internetConnectionView.status = PDStatusViewStatusConnected;
+    }
+    
+    if (_reconnectsWhenReachabilityChanges) {
+        [_client connect];
+        _reconnectsWhenReachabilityChanges = NO;
     }
     
     _triggerEventButton.enabled = YES;
