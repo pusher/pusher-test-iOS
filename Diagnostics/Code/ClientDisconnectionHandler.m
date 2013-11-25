@@ -7,7 +7,7 @@
 //
 
 #import "ClientDisconnectionHandler.h"
-#import <libPusher/PTPusher.h>
+#import <Pusher/Pusher.h>
 #import <Reachability/Reachability.h>
 
 @implementation ClientDisconnectionHandler {

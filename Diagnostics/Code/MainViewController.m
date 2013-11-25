@@ -15,10 +15,7 @@
 #import <MessageUI/MessageUI.h>
 #import <QuartzCore/QuartzCore.h>
 #import <Reachability/Reachability.h>
-#import <libPusher/PTPusher.h>
-#import <libPusher/PTPusherChannel.h>
-#import <libPusher/PTPusherEvent.h>
-#import <libPusher/PTPusherAPI.h>
+#import <Pusher/Pusher.h>
 
 #define kManualReconnectionLimit 3
 

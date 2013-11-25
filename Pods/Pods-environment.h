@@ -21,6 +21,6 @@
 // libPusher
 #define COCOAPODS_POD_AVAILABLE_libPusher
 #define COCOAPODS_VERSION_MAJOR_libPusher 1
-#define COCOAPODS_VERSION_MINOR_libPusher 4
+#define COCOAPODS_VERSION_MINOR_libPusher 5
 #define COCOAPODS_VERSION_PATCH_libPusher 0
 

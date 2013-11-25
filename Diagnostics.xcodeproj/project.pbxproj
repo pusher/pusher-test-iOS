@@ -464,7 +464,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Diagnostics/Resources/Diagnostics-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "FC871B7F-045A-4B4B-9F4F-CDE039ECF1A3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

@@ -53,7 +53,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   return self;
 }
 
-- (void)dealloc 
+- (void)dealloc
 {
   [self.pingTimer invalidate];
   [self.pongTimer invalidate];
@@ -76,7 +76,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
 - (void)connect;
 {
   if (self.state >= PTPusherConnectionConnecting) return;
-    
+  
   BOOL shouldConnect = [self.delegate pusherConnectionWillConnect:self];
   
   if (!shouldConnect) return;
@@ -126,6 +126,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   self.socketID = nil;
   socket = nil;
   
+  // we always call this last, to prevent a race condition if the delegate calls 'connect'
   [self.delegate pusherConnection:self didFailWithError:error wasConnected:wasConnected];
 }
 
@@ -137,7 +138,8 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   self.state = PTPusherConnectionDisconnected;
   self.socketID = nil;
   socket = nil;
-
+  
+  // we always call this last, to prevent a race condition if the delegate calls 'connect'
   [self.delegate pusherConnection:self didDisconnectWithCode:(NSInteger)code reason:(NSString *)reason wasClean:wasClean];
 }
 
@@ -147,7 +149,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   
   NSDictionary *messageDictionary = [[PTJSON JSONParser] objectFromJSONString:message];
   PTPusherEvent *event = [PTPusherEvent eventFromMessageDictionary:messageDictionary];
-
+  
   if ([event.name isEqualToString:PTPusherConnectionPongEvent]) {
 #ifdef DEBUG
     NSLog(@"[pusher] Server responded to ping (pong!)");
