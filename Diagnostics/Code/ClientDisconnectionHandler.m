@@ -48,9 +48,10 @@
          * if we don't, waiting for reachability to change before manually reconnecting if the user
          * has toggled auto-reconnect.
          *
-         * If we do have reachability, then we will optimistically try and reconnect, but we should probably
-         * implement some kind of counter to prevent an endless loop of failure -> connect -> failure.
+         * If we do have reachability, then we will optimistically try and reconnect, but with a limit
+         * on the number of retries to prevent endless connect -> fail -> connect loops.
          */
+        
         // do not reconnect if we get a Pusher 4000-4099 error code
         if ([error.domain isEqualToString:PTPusherErrorDomain]) return;
 
