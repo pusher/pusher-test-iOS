@@ -89,8 +89,8 @@
 - (void)_reachabilityChanged:(NSNotification *)note
 {
     if ([_reachability isReachable] && _reconnectsWhenReachabilityChanges) {
-        [self _performManualReconnect];
         _reconnectsWhenReachabilityChanges = NO;
+        [self _performManualReconnect];
     }
 }
 
