@@ -41,6 +41,7 @@
 		4DAD7A9F16F3768D00CC1B5B /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD7A9E16F3768D00CC1B5B /* NSDate+Utilities.m */; };
 		4DAD7AA816F3804D00CC1B5B /* navigationbar_background_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DAD7AA616F3804D00CC1B5B /* navigationbar_background_logo.png */; };
 		4DAD7AA916F3804D00CC1B5B /* navigationbar_background_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DAD7AA716F3804D00CC1B5B /* navigationbar_background_logo@2x.png */; };
+		A32EE7961843836E00E3B072 /* ClientDisconnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A32EE7951843836E00E3B072 /* ClientDisconnectionHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,8 @@
 		4DAD7AA616F3804D00CC1B5B /* navigationbar_background_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationbar_background_logo.png; sourceTree = "<group>"; };
 		4DAD7AA716F3804D00CC1B5B /* navigationbar_background_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_background_logo@2x.png"; sourceTree = "<group>"; };
 		5C489B0750634AF4B9805F3D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		A32EE7941843836E00E3B072 /* ClientDisconnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientDisconnectionHandler.h; sourceTree = "<group>"; };
+		A32EE7951843836E00E3B072 /* ClientDisconnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientDisconnectionHandler.m; sourceTree = "<group>"; };
 		AFF6CAF415C44BA09D96EC4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,6 +163,8 @@
 				4D39521716F0E23B0007DD6B /* AppDelegate.m */,
 				4D39522016F0E23B0007DD6B /* MainViewController.h */,
 				4D39522116F0E23B0007DD6B /* MainViewController.m */,
+				A32EE7941843836E00E3B072 /* ClientDisconnectionHandler.h */,
+				A32EE7951843836E00E3B072 /* ClientDisconnectionHandler.m */,
 				4D39521816F0E23B0007DD6B /* Categories */,
 				4D39521B16F0E23B0007DD6B /* Helper */,
 			);
@@ -357,6 +362,7 @@
 			files = (
 				4D39522216F0E23B0007DD6B /* AppDelegate.m in Sources */,
 				4D39522316F0E23B0007DD6B /* UIColor+PusherDiagnostics.m in Sources */,
+				A32EE7961843836E00E3B072 /* ClientDisconnectionHandler.m in Sources */,
 				4D39522416F0E23B0007DD6B /* PDStatusView.m in Sources */,
 				4D39522616F0E23B0007DD6B /* MainViewController.m in Sources */,
 				4D39522916F0E25D0007DD6B /* PDLogger.m in Sources */,

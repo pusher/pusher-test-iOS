@@ -10,6 +10,7 @@
 #import "UIColor+PusherDiagnostics.h"
 #import "PDLogger.h"
 #import "PDDeviceInfo.h"
+#import "ClientDisconnectionHandler.h"
 
 #import <MessageUI/MessageUI.h>
 #import <QuartzCore/QuartzCore.h>
@@ -19,13 +20,13 @@
 #import <libPusher/PTPusherEvent.h>
 #import <libPusher/PTPusherAPI.h>
 
-@interface MainViewController ()<PTPusherDelegate, MFMailComposeViewControllerDelegate> {
+#define kManualReconnectionLimit 3
+
+@interface MainViewController ()<PTPusherDelegate, ClientDisconnectionHandlerDelegate, MFMailComposeViewControllerDelegate> {
     PTPusher *_client;
     Reachability *_reachability;
     NSOperationQueue *_queue;
-    BOOL _reconnectsWhenReachabilityChanges;
-    NSInteger _manualReconnectAttempts;
-    NSInteger _manualReconnectAttemptLimit;
+    ClientDisconnectionHandler *_disconnectionHandler;
 }
 @end
 
@@ -34,8 +35,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _manualReconnectAttemptLimit = 3;
     
     // navigationbar
     UIImage *navigationBarBackground = [UIImage imageNamed:@"navigationbar_background_logo.png"];
@@ -66,7 +65,10 @@
     // setup
     [self _setupPusher];
     [self _setupReachability];
+    [self _setupDisconnectionHandler];
     [self _setupBackgroundingNotifications];
+    
+    [_client connect];
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,6 +114,14 @@
     }];
 }
 
+- (void)_setupDisconnectionHandler
+{
+    _disconnectionHandler = [[ClientDisconnectionHandler alloc] initWithClient:_client reachability:_reachability];
+    _disconnectionHandler.reconnectPermitted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
+    _disconnectionHandler.reconnectAttemptLimit = kManualReconnectionLimit;
+    _disconnectionHandler.delegate = self;
+}
+
 
 //////////////////////////////////
 #pragma mark - Pusher Delegate Connection
@@ -119,7 +129,7 @@
 
 - (void)pusher:(PTPusher *)pusher connectionDidConnect:(PTPusherConnection *)connection
 {
-    _manualReconnectAttempts = 0;
+    [_disconnectionHandler handleConnection];
     
     BOOL encrypted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsSSLEnabled];
     NSString *sslStatus = encrypted ? @"SSL" : @"non SSL";
@@ -142,8 +152,8 @@
     _pusherConnectionView.status = PDStatusViewStatusDisconnected;
     _connectButton.enabled = YES;
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
-    
-    [self handleDisconnectionsWithThatWillNotAutoReconnect];
+
+    [_disconnectionHandler handleDisconnectionWithError:error];
 }
 
 - (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection didDisconnectWithError:(NSError *)error willAttemptReconnect:(BOOL)reconnect
@@ -158,9 +168,10 @@
     _connectButton.enabled = YES;
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
     
-    // we check the error domain as we never want to reconnect if we disconnected with a 4000-4099 error
-    if (!reconnect && ![error.domain isEqualToString:PTPusherErrorDomain]) {
-        [self handleDisconnectionsWithThatWillNotAutoReconnect];
+
+    // we only want to manually handle disconnections if reconnect will not happen automatically
+    if (!reconnect) {
+        [_disconnectionHandler handleDisconnectionWithError:error];
     }
 }
 
@@ -174,9 +185,7 @@
 
 - (BOOL)pusher:(PTPusher *)pusher connectionWillAutomaticallyReconnect:(PTPusherConnection *)connection afterDelay:(NSTimeInterval)delay
 {
-    BOOL reconnect = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
-    
-    if (reconnect) {
+    if (_disconnectionHandler.reconnectPermitted) {
         [[PDLogger sharedInstance] logInfo:@"[Pusher] will reconnect in %.0f seconds", delay];
         _pusherConnectionView.status = PDStatusViewStatusWaiting;
         _connectButton.enabled = NO;
@@ -188,45 +197,7 @@
         [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
     }
 
-    return reconnect;
-}
-
-- (void)handleDisconnectionsWithThatWillNotAutoReconnect
-{
-    /* Pusher will not auto-reconnect in the following circumstances:
-     *   1. Connection failed on initial connection attempt (calls pusher:connection:failedWithError:)
-     *   2. Connection failed whilst connected (treated as a disconnect, typically due to network failure)
-     *   3. Connection disconnected with error code in 4000-4099 range
-     *
-     * Ignoring the third scenario, we can handle this by checking to see if we have reachability and
-     * if we don't, waiting for reachability to change before manually reconnecting if the user
-     * has toggled auto-reconnect.
-     *
-     * If we do have reachability, then we will optimistically try and reconnect, but we should probably
-     * implement some kind of counter to prevent an endless loop of failure -> connect -> failure.
-     */
-    BOOL reconnect = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
-    
-    if (reconnect && _manualReconnectAttempts < _manualReconnectAttemptLimit) {
-        if ([_reachability isReachable]) {
-            [[PDLogger sharedInstance] logError:@"[Pusher] internet reachable so re-connecting manually."];
-            [self performManualReconnect];
-        }
-        else {
-            [[PDLogger sharedInstance] logError:@"[Pusher] will attempt re-connect when reachability changes."];
-            _reconnectsWhenReachabilityChanges = YES;
-        }
-    }
-    else if (_manualReconnectAttempts == _manualReconnectAttemptLimit) {
-        [[PDLogger sharedInstance] logError:@"[Pusher] reached manual reconnection limit."];
-    }
-}
-
-- (void)performManualReconnect
-{
-    [_client connect];
-    _manualReconnectAttempts++;
-    [[PDLogger sharedInstance] logError:@"[Pusher] manual reconnect attempt %d of %d.", _manualReconnectAttempts, _manualReconnectAttemptLimit];
+    return _disconnectionHandler.reconnectPermitted;
 }
 
 //////////////////////////////////
@@ -284,6 +255,24 @@
     [[PDLogger sharedInstance] logInfo:@"[Internet] %@", [_reachability currentReachabilityString]];
 }
 
+/////////////////////////////////
+#pragma mark - Manual disconnection handling
+/////////////////////////////////
+
+- (void)disconnectionHandlerWillReconnect:(ClientDisconnectionHandler *)handler attemptNumber:(NSUInteger)attemptNumber
+{
+    [[PDLogger sharedInstance] logError:@"[Pusher] manual reconnect attempt %d of %d.", attemptNumber, handler.reconnectAttemptLimit];
+}
+
+- (void)disconnectionHandlerWillWaitForReachabilityBeforeReconnecting:(ClientDisconnectionHandler *)handler
+{
+    [[PDLogger sharedInstance] logError:@"[Pusher] will attempt re-connect when reachability changes."];
+}
+
+- (void)disconnectionHandlerReachedReconnectionLimit:(ClientDisconnectionHandler *)handler
+{
+    [[PDLogger sharedInstance] logError:@"[Pusher] reached manual reconnection limit."];
+}
 
 /////////////////////////////////
 #pragma mark - Backgrounding
@@ -348,11 +337,6 @@
         _internetConnectionView.status = PDStatusViewStatusConnectedWiFi;
     } else {
         _internetConnectionView.status = PDStatusViewStatusConnected;
-    }
-    
-    if (_reconnectsWhenReachabilityChanges) {
-        [self performManualReconnect];
-        _reconnectsWhenReachabilityChanges = NO;
     }
     
     _triggerEventButton.enabled = YES;
@@ -476,6 +460,8 @@
     // user defaults
     [[NSUserDefaults standardUserDefaults] setBool:reconnectSwitch.on forKey:kUserDefaultsReconnectEnabled];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    _disconnectionHandler.reconnectPermitted = reconnectSwitch.on;
 }
 
 - (void)_infoButtonPressed:(id)sender
