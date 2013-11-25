@@ -15,6 +15,7 @@
 #import "PTBlockEventListener.h"
 #import "PTPusherErrors.h"
 #import "PTPusherChannelAuthorizationOperation.h"
+#import "PTPusherChannel_Private.h"
 
 #define kPUSHER_HOST @"ws.pusherapp.com"
 
@@ -44,13 +45,6 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
 @property (nonatomic, strong, readwrite) PTPusherConnection *connection;
 @end
 
-@interface PTPusherChannel ()
-/* These methods should only be called internally */
-- (void)subscribeWithAuthorization:(NSDictionary *)authData;
-- (void)unsubscribe;
-- (void)markAsUnsubscribed;
-@end
-
 #pragma mark -
 
 @implementation PTPusher {
@@ -65,6 +59,16 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
 
 - (id)initWithConnection:(PTPusherConnection *)connection connectAutomatically:(BOOL)connectAutomatically
 {
+  if ((self = [self initWithConnection:connection])) {
+    if (connectAutomatically) {
+      [self connect];
+    }
+  }
+  return self;
+}
+
+- (id)initWithConnection:(PTPusherConnection *)connection
+{
   if (self = [super init]) {
     dispatcher = [[PTPusherEventDispatcher alloc] init];
     channels = [[NSMutableDictionary alloc] init];
@@ -76,10 +80,6 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
     self.connection = connection;
     self.connection.delegate = self;
     self.reconnectDelay = kPTPusherDefaultReconnectDelay;
-    
-    if (connectAutomatically) {
-      [self connect];
-    }
   }
   return self;
 }
@@ -91,23 +91,31 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
 
 + (id)pusherWithKey:(NSString *)key delegate:(id<PTPusherDelegate>)delegate encrypted:(BOOL)isEncrypted
 {
-  PTPusher *pusher = [self pusherWithKey:key connectAutomatically:NO encrypted:isEncrypted];
+  NSURL *serviceURL = PTPusherConnectionURL(kPUSHER_HOST, key, @"libPusher", isEncrypted);
+  PTPusherConnection *connection = [[PTPusherConnection alloc] initWithURL:serviceURL];
+  PTPusher *pusher = [[self alloc] initWithConnection:connection];
   pusher.delegate = delegate;
-  [pusher connect];
   return pusher;
 }
 
+#pragma mark - Deprecated methods
+
 + (id)pusherWithKey:(NSString *)key connectAutomatically:(BOOL)connectAutomatically
 {
-  return [self pusherWithKey:key connectAutomatically:connectAutomatically encrypted:YES];
+  PTPusher *client = [self pusherWithKey:key delegate:nil encrypted:YES];
+  if (connectAutomatically) {
+    [client connect];
+  }
+  return client;
 }
 
 + (id)pusherWithKey:(NSString *)key connectAutomatically:(BOOL)connectAutomatically encrypted:(BOOL)isEncrypted
 {
-  NSURL *serviceURL = PTPusherConnectionURL(kPUSHER_HOST, key, @"libPusher", isEncrypted);
-  PTPusherConnection *connection = [[PTPusherConnection alloc] initWithURL:serviceURL];
-  PTPusher *pusher = [[self alloc] initWithConnection:connection connectAutomatically:connectAutomatically];
-  return pusher;
+  PTPusher *client = [self pusherWithKey:key delegate:nil encrypted:isEncrypted];
+  if (connectAutomatically) {
+    [client connect];
+  }
+  return client;
 }
 
 - (void)dealloc;
@@ -193,23 +201,39 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
   return [channels objectForKey:name];
 }
 
+/* This is only called when a client explicitly unsubscribes from a channel
+ * by calling either [channel unsubscribe] or using the deprecated API 
+ * [client unsubscribeFromChannel:].
+ *
+ * This effectively ends the lifetime of a channel: the client will remove it
+ * from it's channels collection and all bindings will be removed. If no other
+ * code outside of libPusher has a strong reference to the channel, it will
+ * be deallocated.
+ *
+ * This is different to implicit unsubscribes (where the connection has been lost)
+ * where the channel will object will remain and be re-subscribed when connection
+ * is re-established.
+ *
+ * A pusher:unsubscribe event will only be sent if there is a connection, otherwise
+ * it's not necessary as the channel is already implicitly unsubscribed due to the
+ * disconnection.
+ */
 - (void)__unsubscribeFromChannel:(PTPusherChannel *)channel
 {
   NSParameterAssert(channel != nil);
   
-  if (channel.isSubscribed == NO) return;
-  
-  [self sendEventNamed:@"pusher:unsubscribe" 
-                  data:[NSDictionary dictionaryWithObject:channel.name forKey:@"channel"]];
-  
   [channel removeAllBindings];
-  [channel markAsUnsubscribed];
+  
+  if (self.connection.isConnected) {
+    [self sendEventNamed:@"pusher:unsubscribe"
+                    data:[NSDictionary dictionaryWithObject:channel.name forKey:@"channel"]];
+  }
+  
+  [channels removeObjectForKey:channel.name];
   
   if ([self.delegate respondsToSelector:@selector(pusher:didUnsubscribeFromChannel:)]) {
     [self.delegate pusher:self didUnsubscribeFromChannel:channel];
   }
-  
-  [channels removeObjectForKey:channel.name];
 }
 
 - (void)unsubscribeFromChannel:(PTPusherChannel *)channel
@@ -235,6 +259,13 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
   }];
 }
 
+- (void)subscribeAll
+{
+  for (PTPusherChannel *channel in [channels allValues]) {
+    [self subscribeToChannel:channel];
+  }
+}
+
 #pragma mark - Sending events
 
 - (void)sendEventNamed:(NSString *)name data:(id)data
@@ -245,6 +276,11 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
 - (void)sendEventNamed:(NSString *)name data:(id)data channel:(NSString *)channelName
 {
   NSParameterAssert(name);
+  
+  if (self.connection.isConnected == NO) {
+    NSLog(@"Warning: attempting to send event while disconnected. Event will not be sent.");
+    return;
+  }
   
   NSMutableDictionary *payload = [NSMutableDictionary dictionary];  
   [payload setObject:name forKey:PTPusherEventKey];
@@ -275,9 +311,7 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
     [self.delegate pusher:self connectionDidConnect:connection];
   }
   
-  for (PTPusherChannel *channel in [channels allValues]) {
-    [self subscribeToChannel:channel];
-  }
+  [self subscribeAll];
 }
 
 - (void)pusherConnection:(PTPusherConnection *)connection didDisconnectWithCode:(NSInteger)errorCode reason:(NSString *)reason wasClean:(BOOL)wasClean
@@ -317,8 +351,7 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
 - (void)pusherConnection:(PTPusherConnection *)connection didFailWithError:(NSError *)error wasConnected:(BOOL)wasConnected
 {
   if (wasConnected) {
-    [self handleDisconnection:connection error:error willReconnect:YES];
-    [self reconnectAfterDelay:self.reconnectDelay];
+    [self handleDisconnection:connection error:error willReconnect:NO];
   }
   else {
     if ([self.delegate respondsToSelector:@selector(pusher:connection:failedWithError:)]) {
@@ -351,12 +384,13 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
   [authorizationQueue cancelAllOperations];
   
   for (PTPusherChannel *channel in [channels allValues]) {
-    [channel markAsUnsubscribed];
+    [channel handleDisconnect];
   }
   
   if ([self.delegate respondsToSelector:@selector(pusher:connectionDidDisconnect:)]) { // deprecated call
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    NSLog(@"pusher:connectionDidDisconnect: is deprecated and will be removed in 1.6. Use pusher:connection:didDisconnectWithError:willAttemptReconnect: instead.");
     [self.delegate pusher:self connectionDidDisconnect:connection];
 #pragma clang diagnostic pop
   }
@@ -364,6 +398,7 @@ NSURL *PTPusherConnectionURL(NSString *host, NSString *key, NSString *clientID, 
   if ([self.delegate respondsToSelector:@selector(pusher:connection:didDisconnectWithError:)]) { // deprecated call
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    NSLog(@"pusher:connectionDidDisconnectWithError: is deprecated and will be removed in 1.6. Use pusher:connection:didDisconnectWithError:willAttemptReconnect: instead.");
     [self.delegate pusher:self connection:connection didDisconnectWithError:error];
 #pragma clang diagnostic pop
   }

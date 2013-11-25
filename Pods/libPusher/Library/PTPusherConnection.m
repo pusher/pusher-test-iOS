@@ -66,6 +66,11 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   return (self.state == PTPusherConnectionConnected);
 }
 
+- (NSURL *)URL
+{
+  return request.URL;
+}
+
 #pragma mark - Connection management
 
 - (void)connect;
@@ -97,7 +102,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
 
 - (void)send:(id)object
 {
-  NSAssert(self.isConnected, @"Cannot send data unless connected.");
+  if (self.isConnected == NO) return;
   
   NSData *JSONData = [[PTJSON JSONParser] JSONDataFromObject:object];
   NSString *message = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
