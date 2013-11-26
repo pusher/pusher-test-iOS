@@ -39,14 +39,14 @@
     if (self.reconnectPermitted) {
         /* Pusher will not auto-reconnect in the following circumstances:
          *   1. Connection failed on initial connection attempt (calls pusher:connection:failedWithError:)
-         *   2. Connection failed whilst connected (treated as a disconnect, typically due to network failure)
-         *   3. Connection disconnected with error code in 4000-4099 range
+         *   2. Connection disconnected with error code in 4000-4099 range
          *
-         * For the third scenario, we simply never reconnect.
+         * For the second scenario, we simply never reconnect.
          *
-         * For the other scenarios, we can handle this by checking to see if we have reachability and
+         * For the first scenario, we can handle this by checking to see if we have reachability and
          * if we don't, waiting for reachability to change before manually reconnecting if the user
-         * has toggled auto-reconnect.
+         * has toggled auto-reconnect. The most likely cause of an immediate connection failure is
+         * due to lack of connectivity.
          *
          * If we do have reachability, then we will optimistically try and reconnect, but with a limit
          * on the number of retries to prevent endless connect -> fail -> connect loops.
