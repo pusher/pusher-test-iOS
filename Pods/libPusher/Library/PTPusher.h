@@ -20,9 +20,23 @@ extern NSString *const PTPusherEventReceivedNotification;
  */
 extern NSString *const PTPusherEventUserInfoKey;
 
-/** The error domain for all PTPusher errors.
+/** The error domain for all non-fatal PTPusher errors.
+ *
+ * These will be any errors not in the range of 4000-4099.
+ *
+ * See: http://pusher.com/docs/pusher_protocol#error-codes
  */
 extern NSString *const PTPusherErrorDomain;
+
+/** The error domain for all fatal PTPusher errors.
+ *
+ * These will be any errors in the range of 4000-4099. If your
+ * connection fails or disconnects with one of these errors, you
+ * will typically not be able to reconnect immediately (or at all).
+ *
+ * See: http://pusher.com/docs/pusher_protocol#error-codes
+ */
+extern NSString *const PTPusherFatalErrorDomain;
 
 /** The key for any underlying PTPusherEvent associated with a PTPusher error's userInfo dictionary.
  */
@@ -64,10 +78,7 @@ extern NSString *const PTPusherErrorUnderlyingEventKey;
  Note: due to various problems people have had connecting to Pusher without SSL over a 3G connection,
  it is highly recommend that you use SSL. For this reason, SSL is enabled by default.
  */
-@interface PTPusher : NSObject <PTPusherConnectionDelegate, PTPusherEventBindings> {
-  PTPusherEventDispatcher *dispatcher;
-  NSMutableDictionary *channels;
-}
+@interface PTPusher : NSObject <PTPusherConnectionDelegate, PTPusherEventBindings>
 
 ///------------------------------------------------------------------------------------/
 /// @name Properties
