@@ -53,7 +53,7 @@
          */
         
         // do not reconnect if we get a Pusher 4000-4099 error code
-        if ([error.domain isEqualToString:PTPusherErrorDomain]) return;
+        if ([error.domain isEqualToString:PTPusherFatalErrorDomain]) return;
 
         if (_manualReconnectAttempts < self.reconnectAttemptLimit) {
             if ([_reachability isReachable]) {
