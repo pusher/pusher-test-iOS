@@ -1,1 +1,1 @@
-../../../libPusher/Library/PTPusherChannelAuthorizationOperation.h
+../../../libPusher/Library/Private Headers/PTPusherChannelAuthorizationOperation.h

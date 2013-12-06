@@ -1,1 +1,1 @@
-../../../libPusher/Library/PTURLRequestOperation.h
+../../../libPusher/Library/Private Headers/PTURLRequestOperation.h

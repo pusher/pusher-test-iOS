@@ -1,21 +1,18 @@
 PODS:
   - libPusher (1.5):
-    - SocketRocket (= 0.2)
+    - libPusher/Core
+  - libPusher/Core (1.5):
+    - SocketRocket (= 0.3.1-beta2)
   - Reachability (3.1.1)
-  - SocketRocket (0.2.0)
+  - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
-  - libPusher (from `git://github.com/lukeredpath/libPusher.git`, branch `release/1.5`)
+  - libPusher (= 1.5)
   - Reachability (~> 3.1.0)
 
-EXTERNAL SOURCES:
-  libPusher:
-    :branch: release/1.5
-    :git: git://github.com/lukeredpath/libPusher.git
-
 SPEC CHECKSUMS:
-  libPusher: 36eeb90145657d3408dd93a89010849abebd1fe3
+  libPusher: 295f281f1003aa678382a387e3043c298f270e4d
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
-  SocketRocket: bca43a94bd9aac3a629df42c06843402399ee67b
+  SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
 
 COCOAPODS: 0.28.0

@@ -1,1 +1,1 @@
-../../../libPusher/Library/PTPusherChannel_Private.h
+../../../libPusher/Library/Private Headers/PTPusherChannel_Private.h

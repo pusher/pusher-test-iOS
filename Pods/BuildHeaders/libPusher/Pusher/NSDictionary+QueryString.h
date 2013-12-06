@@ -1,1 +1,1 @@
-../../../libPusher/Library/NSDictionary+QueryString.h
+../../../libPusher/Library/Private Headers/NSDictionary+QueryString.h

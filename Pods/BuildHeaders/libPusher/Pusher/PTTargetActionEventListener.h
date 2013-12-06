@@ -1,1 +1,1 @@
-../../../libPusher/Library/PTTargetActionEventListener.h
+../../../libPusher/Library/Private Headers/PTTargetActionEventListener.h
