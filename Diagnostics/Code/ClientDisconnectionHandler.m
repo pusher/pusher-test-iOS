@@ -57,7 +57,8 @@
 
         if (_manualReconnectAttempts < self.reconnectAttemptLimit) {
             if ([_reachability isReachable]) {
-                [self _performManualReconnect];
+                // we seem to have reachability so let's try again after a short delay
+                [self performSelector:@selector(_performManualReconnect) withObject:nil afterDelay:5.0];
             }
             else {
                 if ([self.delegate respondsToSelector:@selector(disconnectionHandlerWillWaitForReachabilityBeforeReconnecting:)]) {
