@@ -25,6 +25,7 @@
     NSOperationQueue *_queue;
     ClientDisconnectionHandler *_disconnectionHandler;
 }
+@property (nonatomic, assign) BOOL allowAutomaticReconnections;
 @end
 
 @implementation MainViewController
@@ -440,8 +441,18 @@
     [[NSUserDefaults standardUserDefaults] setBool:sslSwitch.on forKey:kUserDefaultsSSLEnabled];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [_client disconnect];
+    // work around the fact that PTPusher will automatically reconnect when you explicitly call
+    // disconnect, by simply removing all strong references to it, causing it to be deallocated
+    // (which will cause it to disconnect without any further callbacks).
+    _client = nil;
+    _disconnectionHandler = nil;
+    
+    // create a new SSL-enabled client and disconnection handler referencing the new client
     [self _setupPusher];
+    [self _setupDisconnectionHandler];
+    
+    // now connect again
+    [_client connect];
 }
 
 - (IBAction)autoReconnectSwitchChanged:(id)sender
