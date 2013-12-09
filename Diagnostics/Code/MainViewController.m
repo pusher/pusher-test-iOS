@@ -125,7 +125,7 @@
     [_disconnectionHandler handleConnection];
     
     BOOL encrypted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsSSLEnabled];
-    NSString *sslStatus = encrypted ? @"SSL" : @"non SSL";
+    NSString *sslStatus = encrypted ? @"SSL" : @"non-SSL";
     
     [[PDLogger sharedInstance] logSuccess:@"[Pusher] connected (%@)", sslStatus];
     
@@ -431,8 +431,8 @@
 {
     UISwitch *sslSwitch = (UISwitch *)sender;
     
-    NSString *sslStatus = sslSwitch.on ? @"SSL" : @"non SSL";
-    [[PDLogger sharedInstance] logInfo:@"[Pusher] switching to %@ connection...", sslStatus];
+    NSString *sslStatus = sslSwitch.on ? @"SSL" : @"non-SSL";
+    [[PDLogger sharedInstance] logInfo:@"[Pusher] switching to %@ connection", sslStatus];
 
     [[NSUserDefaults standardUserDefaults] setBool:sslSwitch.on forKey:kUserDefaultsSSLEnabled];
     [[NSUserDefaults standardUserDefaults] synchronize];
