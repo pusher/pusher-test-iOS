@@ -53,5 +53,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIRequiresPersistentWiFi</key>
+	<true/>
 </dict>
 </plist>
