@@ -87,9 +87,6 @@
     // setup client
     _client = [PTPusher pusherWithKey:kPusherKey delegate:self encrypted:encrypted];
     _client.reconnectDelay = 3.0;
-  
-    // change view / logs
-    [self _pusherConnecting];
     
     // subscribe to channel and bind to event
     PTPusherChannel *channel = [_client subscribeToChannelNamed:@"channel"];
@@ -173,9 +170,8 @@
 
 - (BOOL)pusher:(PTPusher *)pusher connectionWillConnect:(PTPusherConnection *)connection
 {
-    [[PDLogger sharedInstance] logInfo:@"[Pusher] connecting"];
-    _pusherConnectionView.status = PDStatusViewStatusConnecting;
-
+    [self _pusherConnecting];
+ 
     return YES;
 }
 
