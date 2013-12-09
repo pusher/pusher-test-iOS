@@ -28,10 +28,6 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   NSURLRequest *request;
 }
 
-@synthesize delegate = _delegate;
-@synthesize state;
-@synthesize socketID;
-
 - (id)initWithURL:(NSURL *)aURL secure:(BOOL)secure
 {
   return [self initWithURL:aURL secure:NO];
@@ -53,7 +49,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   return self;
 }
 
-- (void)dealloc 
+- (void)dealloc
 {
   [self.pingTimer invalidate];
   [self.pongTimer invalidate];
@@ -66,12 +62,17 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   return (self.state == PTPusherConnectionConnected);
 }
 
+- (NSURL *)URL
+{
+  return request.URL;
+}
+
 #pragma mark - Connection management
 
 - (void)connect;
 {
   if (self.state >= PTPusherConnectionConnecting) return;
-    
+  
   BOOL shouldConnect = [self.delegate pusherConnectionWillConnect:self];
   
   if (!shouldConnect) return;
@@ -97,7 +98,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
 
 - (void)send:(id)object
 {
-  NSAssert(self.isConnected, @"Cannot send data unless connected.");
+  if (self.isConnected == NO) return;
   
   NSData *JSONData = [[PTJSON JSONParser] JSONDataFromObject:object];
   NSString *message = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
@@ -115,21 +116,27 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
 {
   [self.pingTimer invalidate];
   [self.pongTimer invalidate];
+  
   BOOL wasConnected = self.isConnected;
   self.state = PTPusherConnectionDisconnected;
-  [self.delegate pusherConnection:self didFailWithError:error wasConnected:wasConnected];
   self.socketID = nil;
   socket = nil;
+  
+  // we always call this last, to prevent a race condition if the delegate calls 'connect'
+  [self.delegate pusherConnection:self didFailWithError:error wasConnected:wasConnected];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
 {
   [self.pingTimer invalidate];
   [self.pongTimer invalidate];
+  
   self.state = PTPusherConnectionDisconnected;
-  [self.delegate pusherConnection:self didDisconnectWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean];
   self.socketID = nil;
   socket = nil;
+  
+  // we always call this last, to prevent a race condition if the delegate calls 'connect'
+  [self.delegate pusherConnection:self didDisconnectWithCode:(NSInteger)code reason:(NSString *)reason wasClean:wasClean];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(NSString *)message
@@ -138,7 +145,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   
   NSDictionary *messageDictionary = [[PTJSON JSONParser] objectFromJSONString:message];
   PTPusherEvent *event = [PTPusherEvent eventFromMessageDictionary:messageDictionary];
-
+  
   if ([event.name isEqualToString:PTPusherConnectionPongEvent]) {
 #ifdef DEBUG
     NSLog(@"[pusher] Server responded to ping (pong!)");
@@ -147,7 +154,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
   }
   
   if ([event.name isEqualToString:PTPusherConnectionEstablishedEvent]) {
-    self.socketID = [event.data objectForKey:@"socket_id"];
+    self.socketID = (event.data)[@"socket_id"];
     self.state = PTPusherConnectionConnected;
     
     [self.delegate pusherConnectionDidConnect:self];
@@ -160,7 +167,7 @@ NSString *const PTPusherConnectionPongEvent        = @"pusher:pong";
 
 - (void)sendPing
 {
-  [self send:[NSDictionary dictionaryWithObject:@"pusher:ping" forKey:@"event"]];
+  [self send:@{@"event": @"pusher:ping"}];
 }
 
 - (void)resetPingPongTimer

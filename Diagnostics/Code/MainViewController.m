@@ -10,20 +10,22 @@
 #import "UIColor+PusherDiagnostics.h"
 #import "PDLogger.h"
 #import "PDDeviceInfo.h"
+#import "ClientDisconnectionHandler.h"
 
 #import <MessageUI/MessageUI.h>
 #import <QuartzCore/QuartzCore.h>
 #import <Reachability/Reachability.h>
-#import <libPusher/PTPusher.h>
-#import <libPusher/PTPusherChannel.h>
-#import <libPusher/PTPusherEvent.h>
-#import <libPusher/PTPusherAPI.h>
+#import <Pusher/Pusher.h>
 
-@interface MainViewController ()<PTPusherDelegate, MFMailComposeViewControllerDelegate> {
+#define kManualReconnectionLimit 3
+
+@interface MainViewController ()<PTPusherDelegate, ClientDisconnectionHandlerDelegate, MFMailComposeViewControllerDelegate> {
     PTPusher *_client;
     Reachability *_reachability;
     NSOperationQueue *_queue;
+    ClientDisconnectionHandler *_disconnectionHandler;
 }
+@property (nonatomic, assign) BOOL allowAutomaticReconnections;
 @end
 
 @implementation MainViewController
@@ -61,7 +63,10 @@
     // setup
     [self _setupPusher];
     [self _setupReachability];
+    [self _setupDisconnectionHandler];
     [self _setupBackgroundingNotifications];
+    
+    [_client connect];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,9 +88,6 @@
     _client = [PTPusher pusherWithKey:kPusherKey delegate:self encrypted:encrypted];
     _client.reconnectDelay = 3.0;
     
-    // change view / logs
-    [self _pusherConnecting];
-    
     // subscribe to channel and bind to event
     PTPusherChannel *channel = [_client subscribeToChannelNamed:@"channel"];
     [channel bindToEventNamed:@"event" handleWithBlock:^(PTPusherEvent *channelEvent) {
@@ -105,6 +107,14 @@
     }];
 }
 
+- (void)_setupDisconnectionHandler
+{
+    _disconnectionHandler = [[ClientDisconnectionHandler alloc] initWithClient:_client reachability:_reachability];
+    _disconnectionHandler.reconnectPermitted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
+    _disconnectionHandler.reconnectAttemptLimit = kManualReconnectionLimit;
+    _disconnectionHandler.delegate = self;
+}
+
 
 //////////////////////////////////
 #pragma mark - Pusher Delegate Connection
@@ -112,6 +122,8 @@
 
 - (void)pusher:(PTPusher *)pusher connectionDidConnect:(PTPusherConnection *)connection
 {
+    [_disconnectionHandler handleConnection];
+    
     BOOL encrypted = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsSSLEnabled];
     NSString *sslStatus = encrypted ? @"SSL" : @"non SSL";
     
@@ -133,6 +145,8 @@
     _pusherConnectionView.status = PDStatusViewStatusDisconnected;
     _connectButton.enabled = YES;
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+
+    [_disconnectionHandler handleDisconnectionWithError:error];
 }
 
 - (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection didDisconnectWithError:(NSError *)error willAttemptReconnect:(BOOL)reconnect
@@ -146,21 +160,24 @@
     _pusherConnectionView.status = PDStatusViewStatusDisconnected;
     _connectButton.enabled = YES;
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+    
+
+    // we only want to manually handle disconnections if reconnect will not happen automatically
+    if (!reconnect) {
+        [_disconnectionHandler handleDisconnectionWithError:error];
+    }
 }
 
 - (BOOL)pusher:(PTPusher *)pusher connectionWillConnect:(PTPusherConnection *)connection
 {
-    [[PDLogger sharedInstance] logInfo:@"[Pusher] connecting"];
-    _pusherConnectionView.status = PDStatusViewStatusConnecting;
-
+    [self _pusherConnecting];
+ 
     return YES;
 }
 
 - (BOOL)pusher:(PTPusher *)pusher connectionWillAutomaticallyReconnect:(PTPusherConnection *)connection afterDelay:(NSTimeInterval)delay
 {
-    BOOL reconnect = [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsReconnectEnabled];
-    
-    if (reconnect) {
+    if (_disconnectionHandler.reconnectPermitted) {
         [[PDLogger sharedInstance] logInfo:@"[Pusher] will reconnect in %.0f seconds", delay];
         _pusherConnectionView.status = PDStatusViewStatusWaiting;
         _connectButton.enabled = NO;
@@ -172,9 +189,8 @@
         [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
     }
 
-    return reconnect;
+    return _disconnectionHandler.reconnectPermitted;
 }
-
 
 //////////////////////////////////
 #pragma mark - Pusher Delegate Channel
@@ -231,6 +247,24 @@
     [[PDLogger sharedInstance] logInfo:@"[Internet] %@", [_reachability currentReachabilityString]];
 }
 
+/////////////////////////////////
+#pragma mark - Manual disconnection handling
+/////////////////////////////////
+
+- (void)disconnectionHandlerWillReconnect:(ClientDisconnectionHandler *)handler attemptNumber:(NSUInteger)attemptNumber
+{
+    [[PDLogger sharedInstance] logError:@"[Pusher] manual reconnect attempt %d of %d.", attemptNumber, handler.reconnectAttemptLimit];
+}
+
+- (void)disconnectionHandlerWillWaitForReachabilityBeforeReconnecting:(ClientDisconnectionHandler *)handler
+{
+    [[PDLogger sharedInstance] logError:@"[Pusher] will attempt re-connect when reachability changes."];
+}
+
+- (void)disconnectionHandlerReachedReconnectionLimit:(ClientDisconnectionHandler *)handler
+{
+    [[PDLogger sharedInstance] logError:@"[Pusher] reached manual reconnection limit."];
+}
 
 /////////////////////////////////
 #pragma mark - Backgrounding
@@ -403,8 +437,18 @@
     [[NSUserDefaults standardUserDefaults] setBool:sslSwitch.on forKey:kUserDefaultsSSLEnabled];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [_client disconnect];
+    // work around the fact that PTPusher will automatically reconnect when you explicitly call
+    // disconnect, by simply removing all strong references to it, causing it to be deallocated
+    // (which will cause it to disconnect without any further callbacks).
+    _client = nil;
+    _disconnectionHandler = nil;
+    
+    // create a new SSL-enabled client and disconnection handler referencing the new client
     [self _setupPusher];
+    [self _setupDisconnectionHandler];
+    
+    // now connect again
+    [_client connect];
 }
 
 - (IBAction)autoReconnectSwitchChanged:(id)sender
@@ -418,6 +462,8 @@
     // user defaults
     [[NSUserDefaults standardUserDefaults] setBool:reconnectSwitch.on forKey:kUserDefaultsReconnectEnabled];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    _disconnectionHandler.reconnectPermitted = reconnectSwitch.on;
 }
 
 - (void)_infoButtonPressed:(id)sender
